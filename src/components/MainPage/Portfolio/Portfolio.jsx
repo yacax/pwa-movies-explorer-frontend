@@ -1,0 +1,58 @@
+import React from 'react';
+import './Portfolio.css';
+import useTranslation from '../../../hooks/useTranslation';
+
+function Portfolio() {
+  const translation = useTranslation();
+  return (
+    <section className="portfolio">
+      <a
+        href="https://github.com/yacax"
+        className="portfolio__link-git"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {translation.linksNames.github}
+      </a>
+      <div className="portfolio__navigation">
+        <h4 className="portfolio__navigation-list-title">
+          {translation.mainContent.portfolioTitle}
+        </h4>
+        <ul className="portfolio__navigation-list">
+          <li className="portfolio__navigation-list-item">
+            <a
+              href="https://github.com/yacax/how-to-learn"
+              className="portfolio__navigation-list-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {translation.mainContent.portfolioSiteStatic}
+            </a>
+          </li>
+          <li className="portfolio__navigation-list-item">
+            <a
+              href="https://yacax.github.io/russian-travel/"
+              className="portfolio__navigation-list-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {translation.mainContent.portfolioSiteAdaptive}
+            </a>
+          </li>
+          <li className="portfolio__navigation-list-item">
+            <a
+              href="https://yacax.nomoreparties.sbs/"
+              className="portfolio__navigation-list-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {translation.mainContent.portfolioSiteSinglePage}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+export default Portfolio;

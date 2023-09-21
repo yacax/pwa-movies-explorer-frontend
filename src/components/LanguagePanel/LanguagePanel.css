@@ -1,0 +1,37 @@
+.language-panel__button {
+  z-index: 2;
+  display: block;
+  height: 18px;
+  text-decoration: none;
+  margin: 0 0 4px 30px;
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: right;
+  color: #FFF;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: opacity .3s ease-in-out;
+}
+
+.language-panel__button:hover {
+  opacity: .6;
+}
+
+.language-panel__button:focus-visible {
+  border-bottom: 2px solid #000;
+}
+
+.language-panel__list {
+  position: absolute;
+  z-index: 3;
+  display: none
+}
+
+.language-panel__list_active {
+  display: block;
+}
