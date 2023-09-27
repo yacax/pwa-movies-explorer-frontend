@@ -2,9 +2,14 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './MoviesCard.css';
 import PropTypes from 'prop-types';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
+import useTranslation from '../../hooks/useTranslation';
 
 function MoviesCard({ movie, handleMovieButton }) {
+  const { language } = React.useContext(CurrentUserContext);
+  const translation = useTranslation(language);
   const location = useLocation();
+
   const savedMoviesPage = location.pathname === '/saved-movies';
   const toDoDurationInHours = (min) => `${Math.floor(min / 60)}ч ${min % 60}м`;
   const durationInHours = toDoDurationInHours(movie.duration);
@@ -23,13 +28,18 @@ function MoviesCard({ movie, handleMovieButton }) {
         }
         ${savedMoviesPage ? 'movies-card__save-button_type_delete' : ''}`}
         name="movies-card__save-button"
-        aria-label="Сохранить фильм"
+        aria-label={translation.MOVIES_CARD}
         value=""
         onClick={() => {
           handleMovieButton(movie);
         }}
       />
-      <a href={movie.trailerLink} target="_blank" rel="noopener noreferrer">
+      <a
+        className="movies-card__trailer-link"
+        href={movie.trailerLink}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img
           src={movie.image}
           alt={movie.nameRU}

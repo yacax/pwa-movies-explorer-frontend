@@ -1,9 +1,11 @@
 import React from 'react';
 import './Footer.css';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import useTranslation from '../../hooks/useTranslation';
 
 function Footer() {
-  const { footerTexts } = useTranslation();
+  const { language } = React.useContext(CurrentUserContext);
+  const { footerTexts } = useTranslation(language);
   const currentYear = new Date().getFullYear();
   return (
     <footer className="footer">

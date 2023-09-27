@@ -50,6 +50,7 @@ const mainContent = {
   portfolioSiteStatic: 'Static Site',
   portfolioSiteAdaptive: 'Adaptive Site',
   portfolioSiteSinglePage: 'Single Page Application',
+  PWA_BUTTON: 'Install the app',
 };
 
 const footerTexts = {
@@ -93,6 +94,14 @@ const moviesTexts = {
   moviesButtonLoad: 'Load more',
 };
 
+const MOVIES_CARD = {
+  SAVE_MOVIE: 'Save movie',
+};
+
+const MOVIES_CARD_LIST = {
+  MORE: 'More',
+};
+
 const errorMessagesTexts = {
   REQUEST_ERROR:
     'An error occurred during the request. It might be a connection issue or the server is unavailable. Please wait a moment and try again.',
@@ -100,8 +109,8 @@ const errorMessagesTexts = {
   SEARCH_EMPTY_ERROR: 'You need to enter a keyword',
 };
 
-const AUTH_ERROR_MESSAGES = {
-  HELLO: 'Hello!',
+const AUTH_MESSAGES = {
+  HELLO: 'Hello, ',
   SUCCESS_REGISTRATION: 'You have successfully registered!',
   SERVER_RESP_ERROR: 'Server response error',
   SMTH_WENT_WRONG: 'Something went wrong! Please try again.',
@@ -124,6 +133,12 @@ const profileTexts = {
   PROFILE_SAVE_BUTTON: 'Save',
 };
 
+const NOT_FOUND_PAGE = {
+  TITLE: '404',
+  TEXT: 'Page not found',
+  LINK: 'Back',
+};
+
 export default {
   navigationTexts,
   linksNames,
@@ -134,7 +149,10 @@ export default {
   searchFormTexts,
   moviesTexts,
   errorMessagesTexts,
-  AUTH_ERROR_MESSAGES,
+  AUTH_MESSAGES,
   FORM_ERRORS_MESSAGES,
   profileTexts,
+  MOVIES_CARD,
+  MOVIES_CARD_LIST,
+  NOT_FOUND_PAGE,
 };

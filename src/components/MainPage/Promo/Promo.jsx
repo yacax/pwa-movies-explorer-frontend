@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Promo.css';
 import useTranslation from '../../../hooks/useTranslation';
+import CurrentUserContext from '../../../contexts/CurrentUserContext';
 
 function Promo() {
-  const translation = useTranslation();
+  const { language } = useContext(CurrentUserContext);
+  const translation = useTranslation(language);
   return (
     <section className="promo">
       <h1 className="promo__title">{translation.mainContent.promo}</h1>

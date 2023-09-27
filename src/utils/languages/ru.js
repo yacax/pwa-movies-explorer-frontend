@@ -50,6 +50,7 @@ const mainContent = {
   portfolioSiteStatic: 'Статичный сайт',
   portfolioSiteAdaptive: 'Адаптивный сайт',
   portfolioSiteSinglePage: 'Одностраничное приложение',
+  PWA_BUTTON: 'Установить приложение',
 };
 
 const footerTexts = {
@@ -93,6 +94,14 @@ const moviesTexts = {
   moviesButtonLoad: 'Загрузить ещё',
 };
 
+const MOVIES_CARD = {
+  SAVE_MOVIE: 'Сохранить фильм',
+};
+
+const MOVIES_CARD_LIST = {
+  MORE: 'Ещё',
+};
+
 const errorMessagesTexts = {
   REQUEST_ERROR:
     'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.',
@@ -100,7 +109,7 @@ const errorMessagesTexts = {
   SEARCH_EMPTY_ERROR: 'Нужно ввести ключевое слово',
 };
 
-const AUTH_ERROR_MESSAGES = {
+const AUTH_MESSAGES = {
   HELLO: 'Здравствуйте,',
   SUCCESS_REGISTRATION: 'Вы успешно зарегистрировались!',
   SERVER_RESP_ERROR: 'Ошибка в ответе с сервера',
@@ -124,6 +133,12 @@ const profileTexts = {
   PROFILE_SAVE_BUTTON: 'Сохранить',
 };
 
+const NOT_FOUND_PAGE = {
+  TITLE: '404',
+  TEXT: 'Страница не найдена',
+  LINK: 'Назад',
+};
+
 export default {
   navigationTexts,
   linksNames,
@@ -134,7 +149,10 @@ export default {
   searchFormTexts,
   moviesTexts,
   errorMessagesTexts,
-  AUTH_ERROR_MESSAGES,
+  AUTH_MESSAGES,
   FORM_ERRORS_MESSAGES,
   profileTexts,
+  MOVIES_CARD,
+  MOVIES_CARD_LIST,
+  NOT_FOUND_PAGE,
 };

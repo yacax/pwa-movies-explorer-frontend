@@ -10,11 +10,12 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Main from '../Main/Main';
 import Preloader from '../Preloader/Preloader';
-import { TEXTS_ERROR_MESSAGES } from '../../utils/constants';
 
 import useSearch from '../../hooks/useSearch';
 import getMoviesRequest from '../../utils/MoviesApi';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
+
+import useTranslation from '../../hooks/useTranslation';
 
 function Movies({
   savedMovies,
@@ -22,8 +23,10 @@ function Movies({
   allMoviesFromMoviesServer,
   setAllMoviesFromMoviesServer,
 }) {
+  const { currentUser, language } = React.useContext(CurrentUserContext);
+  const { TEXTS_ERROR_MESSAGES } = useTranslation(language);
   const location = useLocation();
-  const { currentUser } = React.useContext(CurrentUserContext);
+
   const {
     findedMovies,
     isNotFoundMessage,

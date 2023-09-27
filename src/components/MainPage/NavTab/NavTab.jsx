@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './NavTab.css';
+import CurrentUserContext from '../../../contexts/CurrentUserContext';
 import useTranslation from '../../../hooks/useTranslation';
 
 function NavTab() {
-  const translation = useTranslation();
+  const { language } = useContext(CurrentUserContext);
+  const translation = useTranslation(language);
   return (
     <nav className="navtab">
       <ul className="navtab__list">

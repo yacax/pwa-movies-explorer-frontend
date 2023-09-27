@@ -2,10 +2,12 @@ import React from 'react';
 import './AboutMe.css';
 import avatar from '../../../images/avatar.jpg';
 import SectionTemplate from '../SectionTemplate/SectionTemplate';
+import CurrentUserContext from '../../../contexts/CurrentUserContext';
 import useTranslation from '../../../hooks/useTranslation';
 
 function AboutMe() {
-  const translation = useTranslation();
+  const { language } = React.useContext(CurrentUserContext);
+  const translation = useTranslation(language);
   return (
     <SectionTemplate title={translation.mainContent.aboutStudent} id="student">
       <div className="about-me">

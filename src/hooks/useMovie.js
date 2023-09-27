@@ -63,11 +63,14 @@ function useMovie(currentUser) {
           console.log(err);
         });
     }
-  }, []);
+  }, [currentUser.isLoggedIn]);
 
   useEffect(() => {
     if (savedMovies.length > 0) {
-      localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
+      localStorage.setItem(
+        'savedMoviesLocalStorage',
+        JSON.stringify(savedMovies)
+      );
     }
   }, [savedMovies]);
 

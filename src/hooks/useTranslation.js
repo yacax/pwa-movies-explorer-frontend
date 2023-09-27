@@ -1,21 +1,7 @@
-import { useContext } from 'react';
-import en from '../utils/languages/en';
-import ru from '../utils/languages/ru';
-import CurrentUserContext from '../contexts/CurrentUserContext';
+import { DEFAULT_LANGUAGE, TRANSLATION } from '../utils/constants';
 
-const translation = { EN: en, RU: ru, HE: en };
-
-const useTranslation = () => {
-  const context = useContext(CurrentUserContext);
-
-  if (!context) {
-    throw new Error(
-      'useTranslation must be used within a CurrentUserContext provider'
-    );
-  }
-
-  const { language } = context;
-  return translation[language || 'EN'];
+const useTranslation = (language) => {
+  return TRANSLATION[language || DEFAULT_LANGUAGE];
 };
 
 export default useTranslation;

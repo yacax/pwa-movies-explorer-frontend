@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Portfolio.css';
 import useTranslation from '../../../hooks/useTranslation';
+import CurrentUserContext from '../../../contexts/CurrentUserContext';
 
 function Portfolio() {
-  const translation = useTranslation();
+  const { language } = useContext(CurrentUserContext);
+  const translation = useTranslation(language);
   return (
     <section className="portfolio">
       <a

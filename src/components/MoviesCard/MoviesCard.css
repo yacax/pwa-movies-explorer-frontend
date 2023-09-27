@@ -85,7 +85,6 @@
 }
 
 .movies-card__image {
-  grid-area: movies__image;
   width: 100%;
   aspect-ratio: 364 / 203;
   flex-shrink: 0;
@@ -96,6 +95,10 @@
   font-weight: 400;
   line-height: normal;
   color: #A0A0A0;
+}
+
+.movies-card__trailer-link {
+  grid-area: movies__image;
 }
 
 .element__image::before {

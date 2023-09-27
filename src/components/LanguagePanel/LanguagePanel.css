@@ -35,3 +35,10 @@
 .language-panel__list_active {
   display: block;
 }
+
+
+@media screen and (max-width: 767px) {
+  .language-panel__button {
+    margin: 0;
+  }
+}

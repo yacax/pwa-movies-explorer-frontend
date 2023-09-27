@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import useForm from '../../hooks/useForm';
 import PageWithForm from '../PageWithForm/PageWithForm';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import useTranslation from '../../hooks/useTranslation';
 
 function SignIn({ loginUser }) {
-  const { loginTexts } = useTranslation();
+  const { language } = useContext(CurrentUserContext);
+  const { loginTexts } = useTranslation(language);
   const { form, errors, isFormValid, handleChange } = useForm({
     email: '',
     password: '',

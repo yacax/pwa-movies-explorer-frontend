@@ -3,28 +3,46 @@ import { useLocation } from 'react-router-dom';
 import './MoviesCardList.css';
 import PropTypes from 'prop-types';
 import MoviesCard from '../MoviesCard/MoviesCard';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
+import useTranslation from '../../hooks/useTranslation';
+import {
+  MOVIES_DISPLAY_TYPES,
+  MOVIES_DISPLAY_COUNT,
+  EXTRA_MOVIES_DISPLAY_COUNT,
+  BREAKPOINTS,
+} from '../../utils/constants';
 
 function MoviesCardList({
   moviesArray,
   searchResultMessage,
   handleMovieButton,
 }) {
+  const { language } = React.useContext(CurrentUserContext);
+  const { MOVIES_CARD_LIST } = useTranslation(language);
+
   const location = useLocation();
   const isMovies = location.pathname === '/movies';
-  const [visibleMovies, setVisibleMovies] = useState(3);
-  const [displayState, setDisplayState] = useState('large');
+  const [visibleMovies, setVisibleMovies] = useState(
+    MOVIES_DISPLAY_COUNT.DESKTOP
+  );
+  const [displayState, setDisplayState] = useState(
+    MOVIES_DISPLAY_TYPES.DESKTOP
+  );
 
   useEffect(() => {
     let timeout;
     const handleResize = () => {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
-        if (window.innerWidth < 767) {
-          setDisplayState('small');
-        } else if (window.innerWidth >= 768 && window.innerWidth <= 1279) {
-          setDisplayState('middle');
+        if (window.innerWidth < BREAKPOINTS.TABLET) {
+          setDisplayState(MOVIES_DISPLAY_TYPES.MOBILE);
+        } else if (
+          window.innerWidth >= BREAKPOINTS.TABLET + 1 &&
+          window.innerWidth <= BREAKPOINTS.DESKTOP
+        ) {
+          setDisplayState(MOVIES_DISPLAY_TYPES.TABLET);
         } else {
-          setDisplayState('large');
+          setDisplayState(MOVIES_DISPLAY_TYPES.DESKTOP);
         }
       }, 100);
     };
@@ -41,20 +59,17 @@ function MoviesCardList({
     if (!isMovies) {
       setVisibleMovies(moviesArray.length);
     } else {
-      const displayStateConfig = {
-        middle: 8,
-        large: 12,
-        default: 5,
-      };
-
       setVisibleMovies(
-        displayStateConfig[displayState] || displayStateConfig.default
+        MOVIES_DISPLAY_COUNT[displayState] || MOVIES_DISPLAY_COUNT.MOBILE
       );
     }
   }, [displayState]);
 
   const handleLoadMore = () => {
-    const extraMovies = displayState === 'large' ? 3 : 2;
+    const extraMovies =
+      displayState === MOVIES_DISPLAY_TYPES.DESKTOP
+        ? EXTRA_MOVIES_DISPLAY_COUNT.DESKTOP
+        : EXTRA_MOVIES_DISPLAY_COUNT.MOBILE;
     setVisibleMovies((prevVisibleMovies) => prevVisibleMovies + extraMovies);
   };
   const moviesToShow = moviesArray.slice(0, visibleMovies);
@@ -85,7 +100,7 @@ function MoviesCardList({
             type="button"
             onClick={handleLoadMore}
           >
-            Ещё
+            {MOVIES_CARD_LIST.MORE}
           </button>
         )}
     </div>

@@ -1,3 +1,6 @@
+import ru from './languages/ru';
+import en from './languages/en';
+
 const BASE_BACKEND_URL = 'https://api.tarantino.nomoredomains.work';
 const BASE_MOVIES_URL = 'https://api.nomoreparties.co/beatfilm-movies';
 const BASE_IMAGE_URL = 'https://api.nomoreparties.co/';
@@ -22,6 +25,9 @@ const AUTH_ERROR_MESSAGES = {
   SUCCESS: 'Успешно!',
 };
 
+const BASE_ERROR_MESAGE = 'Something went wrong! Please try again';
+const DEFAULT_POPUP_DELAY = 5000;
+
 // const FORM_ERRORS_MESSAGES = {
 //   EMAIL: 'Неверный адрес электронной почты',
 //   CONFIRM_PASSWORD: 'Пароли не одинаковые',
@@ -35,17 +41,50 @@ const VALID_PATHS = [
   '/signup',
 ];
 
+const MOVIES_DISPLAY_TYPES = {
+  MOBILE: 'MOBILE',
+  TABLET: 'TABLET',
+  DESKTOP: 'DESKTOP',
+};
+
+const MOVIES_DISPLAY_COUNT = {
+  MOBILE: 5,
+  TABLET: 8,
+  DESKTOP: 12,
+};
+
+const EXTRA_MOVIES_DISPLAY_COUNT = {
+  MOBILE: 2,
+  TABLET: 2,
+  DESKTOP: 3,
+};
+
+const BREAKPOINTS = {
+  MOBILE: 480 - 1,
+  TABLET: 768 - 1,
+  DESKTOP: 1280 - 1,
+};
+
 const SUPPORTED_LANGUAGES = ['RU', 'EN', 'HE'];
 const DEFAULT_LANGUAGE = 'EN';
+
+const TRANSLATION = { EN: en, RU: ru, HE: en };
 
 export {
   BASE_BACKEND_URL,
   BASE_MOVIES_URL,
   BASE_IMAGE_URL,
+  BASE_ERROR_MESAGE,
   REGEXP,
   TEXTS_ERROR_MESSAGES,
   VALID_PATHS,
   SUPPORTED_LANGUAGES,
   DEFAULT_LANGUAGE,
   AUTH_ERROR_MESSAGES,
+  TRANSLATION,
+  DEFAULT_POPUP_DELAY,
+  MOVIES_DISPLAY_COUNT,
+  MOVIES_DISPLAY_TYPES,
+  EXTRA_MOVIES_DISPLAY_COUNT,
+  BREAKPOINTS,
 };

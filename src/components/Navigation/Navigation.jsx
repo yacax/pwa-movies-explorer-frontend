@@ -11,7 +11,7 @@ function Navigation({ isPopup, closePopup }) {
   const navigate = useNavigate();
   const location = useLocation();
   const isMain = location.pathname === '/';
-  const { navigationTexts } = useTranslation();
+  const { navigationTexts } = useTranslation(user.language);
 
   const loginHandler = () => {
     navigate('/signin');

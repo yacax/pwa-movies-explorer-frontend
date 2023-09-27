@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Techs.css';
 import SectionTemplate from '../SectionTemplate/SectionTemplate';
+import CurrentUserContext from '../../../contexts/CurrentUserContext';
 import useTranslation from '../../../hooks/useTranslation';
 
 function Techs() {
-  const translation = useTranslation();
+  const { language } = useContext(CurrentUserContext);
+  const translation = useTranslation(language);
   return (
     <SectionTemplate title={translation.mainContent.aboutTech} id="tech">
       <div className="techs">

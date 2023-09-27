@@ -2,11 +2,7 @@ import React from 'react';
 import './SectionTemplate.css';
 import PropTypes from 'prop-types';
 
-function SectionTemplate({
-  title = 'Тут должен быть заголовок',
-  id = 'none',
-  children,
-}) {
+function SectionTemplate({ title = 'none', id = 'none', children }) {
   return (
     <section className={`section section_name_${id}`} id={id}>
       <h2 className="section__title">{title}</h2>

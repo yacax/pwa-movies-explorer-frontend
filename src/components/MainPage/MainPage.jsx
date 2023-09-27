@@ -10,6 +10,7 @@ import AboutProject from './AboutProject/AboutProject';
 import Techs from './Techs/Techs';
 import AboutMe from './AboutMe/AboutMe';
 import Portfolio from './Portfolio/Portfolio';
+import PwaButton from '../PwaButton/PwaButton';
 
 function MainPage() {
   return (
@@ -22,6 +23,7 @@ function MainPage() {
         <Techs />
         <AboutMe />
         <Portfolio />
+        <PwaButton />
       </Main>
       <Footer />
     </>

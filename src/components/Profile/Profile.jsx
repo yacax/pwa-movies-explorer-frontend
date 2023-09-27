@@ -10,7 +10,7 @@ function Profile({ changeProfile, logOut }) {
   const currentUser = React.useContext(CurrentUserContext);
   const [isEdit, setIsEdit] = useState(false);
   const refName = useRef();
-  const { profileTexts } = useTranslation();
+  const { profileTexts } = useTranslation(currentUser.language);
   const { form, setForm, errors, handleChange, isFormValid, updateFormInput } =
     useForm({
       name: currentUser.name,
