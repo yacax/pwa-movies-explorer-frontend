@@ -1,9 +1,20 @@
-.language-panel__button {
+.language-panel {
+  position: relative;
   z-index: 2;
+}
+
+.language-panel_popup {
+  position: absolute;
+  top: 27px;
+  left: calc(32% + 27px);
+}
+
+.language-panel__button {
+  z-index: 5;
   display: block;
   height: 18px;
   text-decoration: none;
-  margin: 0 0 4px 30px;
+  margin: 0;
   font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-size: 12px;
@@ -26,8 +37,15 @@
   border-bottom: 2px solid #000;
 }
 
+.language-panel__button_style_black {
+  color: #000;
+}
+
+
+
 .language-panel__list {
   position: absolute;
+  top: 20px;
   z-index: 3;
   display: none
 }
@@ -40,5 +58,12 @@
 @media screen and (max-width: 767px) {
   .language-panel__button {
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .language-panel_popup {
+    top: 18px;
+    left: 18px;
   }
 }

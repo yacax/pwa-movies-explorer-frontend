@@ -1,13 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
-import MainPage from '../MainPage/MainPage';
-import Movies from '../Movies/Movies';
-import SavedMovies from '../SavedMovies/SavedMovies';
-import Profile from '../Profile/Profile';
-import Login from '../Login/Login';
-import Register from '../Register/Register';
-import NotFoundPage from '../NotFoundPage/NotFoundPage';
+
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import ProtectedRoute from '../ProtetedRoute';
 import IsLogginedProtectedRoute from '../IsLogginedProtectedRoute';
@@ -23,6 +17,14 @@ import mainApi from '../../utils/MainApi';
 import useTranslation from '../../hooks/useTranslation';
 import usePopup from '../../hooks/usePopup';
 import Loading from '../Loading/Loading';
+
+const MainPage = lazy(() => import('../MainPage/MainPage'));
+const Movies = lazy(() => import('../Movies/Movies'));
+const SavedMovies = lazy(() => import('../SavedMovies/SavedMovies'));
+const Profile = lazy(() => import('../Profile/Profile'));
+const Login = lazy(() => import('../Login/Login'));
+const Register = lazy(() => import('../Register/Register'));
+const NotFoundPage = lazy(() => import('../NotFoundPage/NotFoundPage'));
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -63,6 +65,7 @@ function App() {
 
   const { savedMovies, setSavedMovies, saveMovieButtonHandle } =
     useMovie(currentUser);
+
   useEffect(() => {
     if (savedMovies.length === 0) {
       const savedMoviesFromStorage = JSON.parse(
@@ -75,14 +78,19 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (VALID_PATHS.includes(location.pathname) || location.pathname === '/') {
+    if (VALID_PATHS.includes(location.pathname)) {
       localStorage.setItem('lastValidPath', location.pathname);
     }
   }, [location]);
 
   useEffect(() => {
-    if (currentUser.language)
+    if (currentUser.language) {
       localStorage.setItem('languageLocalStorage', currentUser.language);
+    }
+    document.documentElement.setAttribute(
+      'dir',
+      currentUser.language === 'עבר' ? 'rtl' : 'ltr'
+    );
   }, [currentUser.language]);
 
   useEffect(() => {
@@ -99,9 +107,6 @@ function App() {
         'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
       document.getElementsByTagName('head')[0].appendChild(viewportMetaTag);
     }
-
-    const lastValidPath = localStorage.getItem('lastValidPath');
-    if (lastValidPath) navigate(lastValidPath);
 
     if (currentUser.language === '') {
       const storedLanguage = localStorage.getItem('languageLocalStorage');
@@ -144,6 +149,9 @@ function App() {
         } else {
           showInfoMessage(AUTH_MESSAGES.SERVER_RESP_ERROR);
         }
+
+        const lastValidPath = localStorage.getItem('lastValidPath');
+        if (lastValidPath) navigate(lastValidPath);
       })
       .catch((err) => {
         console.log(err);
@@ -277,77 +285,79 @@ function App() {
   };
 
   if (isLoading) {
-    return <Loading />;
+    return <Loading language={currentUser.language} />;
   }
 
   return (
     <CurrentUserContext.Provider value={userContextValue}>
       <div className="body">
         <div className="page">
-          <Routes>
-            <Route
-              path="/movies"
-              element={
-                <ProtectedRoute
-                  path="/movies"
-                  component={Movies}
-                  savedMovies={savedMovies}
-                  handleMovieButton={saveMovieButtonHandle}
-                  allMoviesFromMoviesServer={allMoviesFromMoviesServer}
-                  setAllMoviesFromMoviesServer={setAllMoviesFromMoviesServer}
-                />
-              }
-            />
-            <Route
-              path="/saved-movies"
-              element={
-                <ProtectedRoute
-                  path="/saved-movies"
-                  component={SavedMovies}
-                  savedMovies={savedMovies}
-                  handleMovieButton={saveMovieButtonHandle}
-                />
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <ProtectedRoute
-                  path="/profile"
-                  component={Profile}
-                  changeProfile={changeProfile}
-                  logOut={logOut}
-                />
-              }
-            />
-            <Route path="/" element={<MainPage />} />
-            <Route
-              path="/signin"
-              element={
-                <IsLogginedProtectedRoute
-                  component={Login}
-                  loginUser={loginUser}
-                />
-              }
-            />
-            <Route
-              path="/signup"
-              element={
-                <IsLogginedProtectedRoute
-                  component={Register}
-                  registerUser={registerUser}
-                />
-              }
-            />
-            <Route
-              path="*"
-              element={
-                <NotFoundPage
-                  lastPath={localStorage.getItem('lastValidPath')}
-                />
-              }
-            />
-          </Routes>
+          <Suspense fallback={<Loading />}>
+            <Routes>
+              <Route
+                path="/movies"
+                element={
+                  <ProtectedRoute
+                    path="/movies"
+                    component={Movies}
+                    savedMovies={savedMovies}
+                    handleMovieButton={saveMovieButtonHandle}
+                    allMoviesFromMoviesServer={allMoviesFromMoviesServer}
+                    setAllMoviesFromMoviesServer={setAllMoviesFromMoviesServer}
+                  />
+                }
+              />
+              <Route
+                path="/saved-movies"
+                element={
+                  <ProtectedRoute
+                    path="/saved-movies"
+                    component={SavedMovies}
+                    savedMovies={savedMovies}
+                    handleMovieButton={saveMovieButtonHandle}
+                  />
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute
+                    path="/profile"
+                    component={Profile}
+                    changeProfile={changeProfile}
+                    logOut={logOut}
+                  />
+                }
+              />
+              <Route path="/" element={<MainPage />} />
+              <Route
+                path="/signin"
+                element={
+                  <IsLogginedProtectedRoute
+                    component={Login}
+                    loginUser={loginUser}
+                  />
+                }
+              />
+              <Route
+                path="/signup"
+                element={
+                  <IsLogginedProtectedRoute
+                    component={Register}
+                    registerUser={registerUser}
+                  />
+                }
+              />
+              <Route
+                path="*"
+                element={
+                  <NotFoundPage
+                    lastPath={localStorage.getItem('lastValidPath')}
+                  />
+                }
+              />
+            </Routes>
+          </Suspense>
         </div>
         <Info
           isOpen={isOpen}

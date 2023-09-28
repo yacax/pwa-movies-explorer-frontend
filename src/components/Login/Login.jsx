@@ -7,7 +7,10 @@ import useTranslation from '../../hooks/useTranslation';
 
 function SignIn({ loginUser }) {
   const { language } = useContext(CurrentUserContext);
-  const { loginTexts } = useTranslation(language);
+  const { loginTexts, IS_RIGTH_TO_LEFT } = useTranslation(language);
+  const inputClassNames = `page-with-form__input ${
+    IS_RIGTH_TO_LEFT ? 'page-with-form__input_align_right' : ''
+  } `;
   const { form, errors, isFormValid, handleChange } = useForm({
     email: '',
     password: '',
@@ -39,7 +42,7 @@ function SignIn({ loginUser }) {
         <input
           type="email"
           autoComplete="email"
-          className="page-with-form__input"
+          className={inputClassNames}
           name="email"
           placeholder={loginTexts.loginEmail}
           required
@@ -61,7 +64,7 @@ function SignIn({ loginUser }) {
         <input
           type="password"
           autoComplete="current-password"
-          className="page-with-form__input"
+          className={inputClassNames}
           name="password"
           placeholder={loginTexts.loginPassword}
           required

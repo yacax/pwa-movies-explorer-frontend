@@ -16,7 +16,7 @@ const linksNames = {
 };
 
 const mainContent = {
-  promo: 'Учебный проект студента факультета Веб-разработки.',
+  promo: 'Учебный проект студента факультета Веб-разработки',
   aboutProject: 'О проекте',
   aboutProjectFirstColumnTitle: 'Дипломный проект включал 5 этапов',
   aboutProjectFirstColumnText:
@@ -102,7 +102,7 @@ const MOVIES_CARD_LIST = {
   MORE: 'Ещё',
 };
 
-const errorMessagesTexts = {
+const ERROR_MESSAGES_TEXTS = {
   REQUEST_ERROR:
     'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.',
   MOVIE_NOT_FOUND_ERROR: 'Ничего не найдено',
@@ -133,11 +133,18 @@ const profileTexts = {
   PROFILE_SAVE_BUTTON: 'Сохранить',
 };
 
+const LOADING = {
+  TEXT: 'Загрузка',
+};
+
 const NOT_FOUND_PAGE = {
   TITLE: '404',
   TEXT: 'Страница не найдена',
   LINK: 'Назад',
 };
+
+const LANGUAGE_DIRECTION = 'ltr';
+const IS_RIGTH_TO_LEFT = LANGUAGE_DIRECTION === 'rtl';
 
 export default {
   navigationTexts,
@@ -148,11 +155,14 @@ export default {
   registerTexts,
   searchFormTexts,
   moviesTexts,
-  errorMessagesTexts,
+  ERROR_MESSAGES_TEXTS,
   AUTH_MESSAGES,
   FORM_ERRORS_MESSAGES,
   profileTexts,
   MOVIES_CARD,
   MOVIES_CARD_LIST,
   NOT_FOUND_PAGE,
+  LOADING,
+  LANGUAGE_DIRECTION,
+  IS_RIGTH_TO_LEFT,
 };

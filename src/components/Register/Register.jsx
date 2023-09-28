@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import useForm from '../../hooks/useForm';
 import PageWithForm from '../PageWithForm/PageWithForm';
 import useTranslation from '../../hooks/useTranslation';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 function Register({ registerUser }) {
   const { form, errors, isFormValid, handleChange, hardChangeIsFormValid } =
@@ -12,8 +13,11 @@ function Register({ registerUser }) {
       password: '',
       confirmPassword: '',
     });
-
-  const { registerTexts } = useTranslation();
+  const { language } = React.useContext(CurrentUserContext);
+  const { registerTexts, IS_RIGTH_TO_LEFT } = useTranslation(language);
+  const inputClassNames = `page-with-form__input ${
+    IS_RIGTH_TO_LEFT ? 'page-with-form__input_align_right' : ''
+  } `;
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -40,7 +44,7 @@ function Register({ registerUser }) {
         <input
           type="text"
           autoComplete="name"
-          className="page-with-form__input"
+          className={inputClassNames}
           name="name"
           placeholder={registerTexts.registerName}
           required
@@ -57,7 +61,7 @@ function Register({ registerUser }) {
         <input
           type="email"
           autoComplete="email"
-          className="page-with-form__input"
+          className={inputClassNames}
           name="email"
           placeholder={registerTexts.registerEmail}
           required
@@ -74,7 +78,7 @@ function Register({ registerUser }) {
         <input
           type="password"
           autoComplete="current-password"
-          className="page-with-form__input"
+          className={inputClassNames}
           name="password"
           placeholder={registerTexts.registerPassword}
           required
@@ -91,7 +95,7 @@ function Register({ registerUser }) {
         <input
           type="password"
           autoComplete="new-password"
-          className="page-with-form__input"
+          className={inputClassNames}
           name="confirmPassword"
           placeholder={registerTexts.registerPasswordAgain}
           required

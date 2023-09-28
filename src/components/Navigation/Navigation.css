@@ -6,6 +6,7 @@
   width: 100%;
   padding: 0;
   color: #fff;
+  gap: 15px;
 }
 
 .navigation_logged {
@@ -69,7 +70,7 @@
   width: 76px;
   height: 32px;
   flex-shrink: 0;
-  margin: 0 0 7px 30px;
+  margin: 0 0 7px;
   padding: 0;
   font-family: Inter, Arial, sans-serif;
   font-size: 12px;
@@ -227,12 +228,7 @@
     gap: 14px;
   }
 
-  .navigation__button {
-    width: 54px;
-    height: 26px;
-    margin: 6px 7px 0 0;
-    font-size: 10px;
-  }
+
 
   .navigation__button_popup {
     margin-top: 619px;
@@ -248,8 +244,19 @@
   }
 
   .navigation__button {
-    margin-bottom: 6px;
+    width: 54px;
+    height: 26px;
+
+    /* margin: 6px 7px 0 0; */
+
+    /* margin-bottom: 6px; */
+    font-size: 10px;
   }
+
+  /*
+  .navigation__button {
+    margin-bottom: 6px;
+  } */
 
   .navigation__popup {
     left: 0;

@@ -60,6 +60,8 @@ function Navigation({ isPopup, closePopup }) {
           >
             {navigationTexts.navigationProfile}
           </NavLink>
+          <LanguagePanel isPopup={isPopup} />
+
           {isPopup && (
             <button
               type="button"
@@ -76,13 +78,13 @@ function Navigation({ isPopup, closePopup }) {
           <NavLink to="/signup" className="navigation__link">
             {navigationTexts.signUp}
           </NavLink>
-          <LanguagePanel />
           <input
             type="button"
             className="navigation__button"
             onClick={loginHandler}
             value={navigationTexts.signIn}
           />
+          <LanguagePanel />
         </>
       )}
     </nav>

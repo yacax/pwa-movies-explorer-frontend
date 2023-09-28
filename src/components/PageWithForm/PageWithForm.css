@@ -118,6 +118,10 @@
   outline: none;
 }
 
+.page-with-form__input_align_right {
+  text-align: right;
+}
+
 .page-with-form__error-text {
   position: absolute;
   top: 46px;

@@ -1,5 +1,6 @@
 import ru from './languages/ru';
 import en from './languages/en';
+import he from './languages/he';
 
 const BASE_BACKEND_URL = 'https://api.tarantino.nomoredomains.work';
 const BASE_MOVIES_URL = 'https://api.nomoreparties.co/beatfilm-movies';
@@ -65,10 +66,10 @@ const BREAKPOINTS = {
   DESKTOP: 1280 - 1,
 };
 
-const SUPPORTED_LANGUAGES = ['RU', 'EN', 'HE'];
+const SUPPORTED_LANGUAGES = ['RU', 'EN', 'עבר'];
 const DEFAULT_LANGUAGE = 'EN';
 
-const TRANSLATION = { EN: en, RU: ru, HE: en };
+const TRANSLATION = { EN: en, RU: ru, HE: he };
 
 export {
   BASE_BACKEND_URL,

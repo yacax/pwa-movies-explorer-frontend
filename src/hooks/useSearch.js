@@ -9,7 +9,7 @@ const useSearch = () => {
   const [isNotFoundMessage, setIsNotFoundMessage] = useState('');
   const [isShortsOnly, setIsShortsOnly] = useState(false);
   const [originalSearchResults, setOriginalSearchResults] = useState([]);
-  const { errorMessagesTexts } = useTranslation();
+  const { ERROR_MESSAGES_TEXTS } = useTranslation(currentUser.language);
 
   const optimizeArray = (arr) =>
     arr.map((movie) => {
@@ -110,7 +110,7 @@ const useSearch = () => {
 
     if (searchResult.length === 0) {
       setFindedMovies([]);
-      setIsNotFoundMessage(errorMessagesTexts.MOVIE_NOT_FOUND_ERROR);
+      setIsNotFoundMessage(ERROR_MESSAGES_TEXTS.MOVIE_NOT_FOUND_ERROR);
     } else {
       setIsNotFoundMessage('');
       setFindedMovies(searchResult);
@@ -124,7 +124,7 @@ const useSearch = () => {
     }
 
     if (updatedResults.length === 0) {
-      setIsNotFoundMessage(errorMessagesTexts.MOVIE_NOT_FOUND_ERROR);
+      setIsNotFoundMessage(ERROR_MESSAGES_TEXTS.MOVIE_NOT_FOUND_ERROR);
     } else {
       setIsNotFoundMessage('');
     }

@@ -6,6 +6,11 @@ import CurrentUserContext from '../../../contexts/CurrentUserContext';
 function Portfolio() {
   const { language } = useContext(CurrentUserContext);
   const translation = useTranslation(language);
+  const navigationLinksClassNames = `portfolio__navigation-list-link ${
+    language === 'עבר'
+      ? 'portfolio__navigation-list-link_type_rtl'
+      : 'portfolio__navigation-list-link_type_ltr'
+  }`;
   return (
     <section className="portfolio">
       <a
@@ -24,7 +29,7 @@ function Portfolio() {
           <li className="portfolio__navigation-list-item">
             <a
               href="https://github.com/yacax/how-to-learn"
-              className="portfolio__navigation-list-link"
+              className={navigationLinksClassNames}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -34,7 +39,7 @@ function Portfolio() {
           <li className="portfolio__navigation-list-item">
             <a
               href="https://yacax.github.io/russian-travel/"
-              className="portfolio__navigation-list-link"
+              className={navigationLinksClassNames}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -44,7 +49,7 @@ function Portfolio() {
           <li className="portfolio__navigation-list-item">
             <a
               href="https://yacax.nomoreparties.sbs/"
-              className="portfolio__navigation-list-link"
+              className={navigationLinksClassNames}
               target="_blank"
               rel="noopener noreferrer"
             >

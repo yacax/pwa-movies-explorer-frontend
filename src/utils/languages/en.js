@@ -16,7 +16,7 @@ const linksNames = {
 };
 
 const mainContent = {
-  promo: 'The student project from the\u00A0Web Development Faculty.',
+  promo: 'The student project from the\u00A0Web Development Faculty',
   aboutProject: 'About the Project',
   aboutProjectFirstColumnTitle: 'The diploma project included 5 stages',
   aboutProjectFirstColumnText:
@@ -102,7 +102,7 @@ const MOVIES_CARD_LIST = {
   MORE: 'More',
 };
 
-const errorMessagesTexts = {
+const ERROR_MESSAGES_TEXTS = {
   REQUEST_ERROR:
     'An error occurred during the request. It might be a connection issue or the server is unavailable. Please wait a moment and try again.',
   MOVIE_NOT_FOUND_ERROR: 'Nothing found',
@@ -133,11 +133,18 @@ const profileTexts = {
   PROFILE_SAVE_BUTTON: 'Save',
 };
 
+const LOADING = {
+  TEXT: 'Loading',
+};
+
 const NOT_FOUND_PAGE = {
   TITLE: '404',
   TEXT: 'Page not found',
   LINK: 'Back',
 };
+
+const LANGUAGE_DIRECTION = 'ltr';
+const IS_RIGTH_TO_LEFT = LANGUAGE_DIRECTION === 'rtl';
 
 export default {
   navigationTexts,
@@ -148,11 +155,14 @@ export default {
   registerTexts,
   searchFormTexts,
   moviesTexts,
-  errorMessagesTexts,
+  ERROR_MESSAGES_TEXTS,
   AUTH_MESSAGES,
   FORM_ERRORS_MESSAGES,
   profileTexts,
   MOVIES_CARD,
   MOVIES_CARD_LIST,
   NOT_FOUND_PAGE,
+  LOADING,
+  LANGUAGE_DIRECTION,
+  IS_RIGTH_TO_LEFT,
 };

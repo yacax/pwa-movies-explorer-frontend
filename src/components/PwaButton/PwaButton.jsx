@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './PwaButton.css';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import useTranslation from '../../hooks/useTranslation';
 
 function PwaButton() {
-  const { mainContent } = useTranslation();
+  const { language } = React.useContext(CurrentUserContext);
+  const { mainContent } = useTranslation(language);
   const [showInstallButton, setShowInstallButton] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [userDismissed, setUserDismissed] = useState(false);

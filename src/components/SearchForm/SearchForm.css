@@ -34,6 +34,11 @@
   padding-right: 20px;
 }
 
+.search-form__label_algin_right {
+  padding-right: 0;
+  padding-left: 20px;
+}
+
 .search-form__input {
   width: 100%;
   height: 50px;
@@ -56,6 +61,11 @@
 
 .search-form__input:focus-visible {
   outline: 2px solid #000;
+}
+
+.search-form__input_algin_right {
+  padding: 0 20px 0 0;
+  text-align: right;
 }
 
 .search-form__error-text {

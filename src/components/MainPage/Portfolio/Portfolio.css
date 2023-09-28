@@ -130,10 +130,15 @@
   cursor: pointer;
 }
 
+/* .portfolio__navigation-list-link_type_rtl {
+  left: 0;
+} */
+
+
+
 .portfolio__navigation-list-link::before {
   content: "↗";
   position: absolute;
-  right: 0;
   font-family: Inter, Arial, sans-serif;
   font-size: 30px;
   font-style: normal;
@@ -141,6 +146,14 @@
   line-height: 60px;
   letter-spacing: -1.2px;
   color: #000;
+}
+
+.portfolio__navigation-list-link_type_rtl::before {
+  left: 0;
+}
+
+.portfolio__navigation-list-link_type_ltr::before {
+  right: 0;
 }
 
 @media screen and (max-width: 1279px) {
