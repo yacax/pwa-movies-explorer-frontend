@@ -16,12 +16,13 @@ function MoviesCardList({
   moviesArray,
   searchResultMessage,
   handleMovieButton,
+  isChangingAction,
 }) {
   const { language } = React.useContext(CurrentUserContext);
   const { MOVIES_CARD_LIST } = useTranslation(language);
 
   const location = useLocation();
-  const isMovies = location.pathname === '/movies';
+  const isMovies = location.pathname === `/${language}/movies`;
   const [visibleMovies, setVisibleMovies] = useState(
     MOVIES_DISPLAY_COUNT.DESKTOP
   );
@@ -80,6 +81,7 @@ function MoviesCardList({
         key={m.movieId}
         movie={m}
         handleMovieButton={handleMovieButton}
+        isChangingAction={isChangingAction}
       />
     ))
   ) : (
@@ -120,6 +122,7 @@ MoviesCardList.propTypes = {
   ),
   searchResultMessage: PropTypes.string.isRequired,
   handleMovieButton: PropTypes.func.isRequired,
+  isChangingAction: PropTypes.bool,
 };
 
 MoviesCardList.defaultProps = {
@@ -132,6 +135,7 @@ MoviesCardList.defaultProps = {
       save: false,
     },
   ],
+  isChangingAction: false,
 };
 
 export default MoviesCardList;

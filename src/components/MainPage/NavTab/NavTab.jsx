@@ -11,17 +11,17 @@ function NavTab() {
       <ul className="navtab__list">
         <li>
           <a href="#about" className="navtab__link">
-            {translation.linksNames.aboutProject}
+            {translation.LINKS_NAMES.ABOUT_PROJECT}
           </a>
         </li>
         <li>
           <a href="#tech" className="navtab__link">
-            {translation.linksNames.aboutTech}
+            {translation.LINKS_NAMES.ABOUT_TECH}
           </a>
         </li>
         <li>
           <a href="#student" className="navtab__link">
-            {translation.linksNames.aboutStudent}
+            {translation.LINKS_NAMES.ABOUT_STUDENT}
           </a>
         </li>
       </ul>

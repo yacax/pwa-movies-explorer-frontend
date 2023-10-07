@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import './SearchForm.css';
 import PropTypes from 'prop-types';
 import useForm from '../../hooks/useForm';
-// import { TEXTS_ERROR_MESSAGES } from '../../utils/constants';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import useTranslation from '../../hooks/useTranslation';
 
@@ -14,7 +13,7 @@ function SearchForm({
   lastSearchRequest,
 }) {
   const { language } = React.useContext(CurrentUserContext);
-  const { searchFormTexts, ERROR_MESSAGES_TEXTS, IS_RIGTH_TO_LEFT } =
+  const { SEARCH_FORM_TEXT, ERROR_MESSAGES_TEXTS, IS_RIGTH_TO_LEFT } =
     useTranslation(language);
   const {
     form,
@@ -63,7 +62,7 @@ function SearchForm({
               IS_RIGTH_TO_LEFT ? 'search-form__input_algin_right' : ''
             }`}
             name="search"
-            placeholder={searchFormTexts.searchFormPlaceholder}
+            placeholder={SEARCH_FORM_TEXT.SEARCH_FORM_PLACEHOLDER}
             id="search"
             maxLength="50"
             value={form.search}
@@ -76,7 +75,7 @@ function SearchForm({
           type="submit"
           className="search-form__submit"
           name="movie-search-submit"
-          aria-label={searchFormTexts.searchFormLabel}
+          aria-label={SEARCH_FORM_TEXT.SEARCH_FORM_LABLE}
           value=""
         />
       </form>
@@ -91,7 +90,7 @@ function SearchForm({
           onChange={isShortsHandler}
         />
         <span className="search-form__checkbox-indicator" />
-        {searchFormTexts.searchFormCheckboxText}
+        {SEARCH_FORM_TEXT.SEARCH_FORM_CHECKBOX_TEXT}
       </label>
     </section>
   );

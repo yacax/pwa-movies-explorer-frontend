@@ -8,8 +8,6 @@ export const initPWAInstall = (setShowButton) => {
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-
-    // Отобразить кастомный интерфейс (например, кнопку для установки)
     setShowButton(true);
   });
 };

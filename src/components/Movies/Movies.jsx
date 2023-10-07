@@ -22,6 +22,7 @@ function Movies({
   handleMovieButton,
   allMoviesFromMoviesServer,
   setAllMoviesFromMoviesServer,
+  isChangingAction,
 }) {
   const { currentUser, language } = React.useContext(CurrentUserContext);
   const { TEXTS_ERROR_MESSAGES } = useTranslation(language);
@@ -152,6 +153,7 @@ function Movies({
               moviesArray={matchedVsSavedMoviesArray}
               searchResultMessage={isNotFoundMessage}
               handleMovieButton={handleMovieButton}
+              isChangingAction={isChangingAction}
             />
           )}
         </section>
@@ -174,6 +176,7 @@ Movies.propTypes = {
     })
   ).isRequired,
   setAllMoviesFromMoviesServer: PropTypes.func.isRequired,
+  isChangingAction: PropTypes.bool,
 };
 
 Movies.defaultProps = {
@@ -183,6 +186,7 @@ Movies.defaultProps = {
     },
   ]),
   handleMovieButton: () => {},
+  isChangingAction: false,
 };
 
 export default Movies;

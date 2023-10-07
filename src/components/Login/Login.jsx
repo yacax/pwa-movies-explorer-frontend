@@ -7,7 +7,7 @@ import useTranslation from '../../hooks/useTranslation';
 
 function SignIn({ loginUser }) {
   const { language } = useContext(CurrentUserContext);
-  const { loginTexts, IS_RIGTH_TO_LEFT } = useTranslation(language);
+  const { LOGIN_TEXT, IS_RIGTH_TO_LEFT } = useTranslation(language);
   const inputClassNames = `page-with-form__input ${
     IS_RIGTH_TO_LEFT ? 'page-with-form__input_align_right' : ''
   } `;
@@ -23,12 +23,12 @@ function SignIn({ loginUser }) {
 
   return (
     <PageWithForm
-      pageTitle={loginTexts.loginTitle}
+      pageTitle={LOGIN_TEXT.LOGIN_TITLE}
       pageName="login"
-      submitButtonText={loginTexts.loginButton}
-      pageNavigationLink="/signup"
-      pageNavigationLinkText={loginTexts.loginLink}
-      pageNavigationLinkComment={loginTexts.loginText}
+      submitButtonText={LOGIN_TEXT.LOGIN_BUTTON}
+      pageNavigationLink={`/${language}/signup`}
+      pageNavigationLinkText={LOGIN_TEXT.LOGIN_LINK}
+      pageNavigationLinkComment={LOGIN_TEXT.LOGIN_TEXT}
       isFormValid={isFormValid}
       onSubmit={handleSubmit}
     >
@@ -38,13 +38,13 @@ function SignIn({ loginUser }) {
         }`}
         htmlFor="email"
       >
-        {loginTexts.loginEmail}
+        {LOGIN_TEXT.LOGIN_EMAIL}
         <input
           type="email"
           autoComplete="email"
           className={inputClassNames}
           name="email"
-          placeholder={loginTexts.loginEmail}
+          placeholder={LOGIN_TEXT.LOGIN_EMAIL}
           required
           maxLength="30"
           id="email"
@@ -60,13 +60,13 @@ function SignIn({ loginUser }) {
         }`}
         htmlFor="password"
       >
-        {loginTexts.loginPassword}
+        {LOGIN_TEXT.LOGIN_PASSWORD}
         <input
           type="password"
           autoComplete="current-password"
           className={inputClassNames}
           name="password"
-          placeholder={loginTexts.loginPassword}
+          placeholder={LOGIN_TEXT.LOGIN_PASSWORD}
           required
           maxLength="40"
           id="password"

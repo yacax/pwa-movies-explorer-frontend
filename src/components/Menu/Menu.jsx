@@ -6,27 +6,30 @@ import useTranslation from '../../hooks/useTranslation';
 
 function Menu() {
   const { language } = useContext(CurrentUserContext);
-  const { navigationTexts } = useTranslation(language);
+  const { NAVIGATION_TEXTS } = useTranslation(language);
   return (
     <div className="menu">
       <NavLink
-        to="/movies"
+        to={`/${language}/movies`}
         className={({ isActive }) =>
           `menu__link  menu__link_logged ${isActive ? 'menu__link_active' : ''}`
         }
       >
-        {navigationTexts.navigationMovies}
+        {NAVIGATION_TEXTS.NAVIGATION_MOVIES}
       </NavLink>
       <NavLink
-        to="/saved-movies"
+        to={`/${language}/saved-movies`}
         className={({ isActive }) =>
           `menu__link  menu__link_logged ${isActive ? 'menu__link_active' : ''}`
         }
       >
-        {navigationTexts.navigationSavedMovies}
+        {NAVIGATION_TEXTS.NAVIGATION_SAVED_MOVIES}
       </NavLink>
-      <NavLink to="/profile" className="menu__button  menu__button_logged">
-        {navigationTexts.navigationProfile}
+      <NavLink
+        to={`/${language}/profile`}
+        className="menu__button  menu__button_logged"
+      >
+        {NAVIGATION_TEXTS.NAVIGATION_PROFILE}
       </NavLink>
     </div>
   );

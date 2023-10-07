@@ -8,7 +8,7 @@ function Promo() {
   const translation = useTranslation(language);
   return (
     <section className="promo">
-      <h1 className="promo__title">{translation.mainContent.promo}</h1>
+      <h1 className="promo__title">{translation.MAIN_CONTENT.PROMO}</h1>
     </section>
   );
 }

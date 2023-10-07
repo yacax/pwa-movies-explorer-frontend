@@ -5,7 +5,7 @@ import useTranslation from '../../hooks/useTranslation';
 
 function PwaButton() {
   const { language } = React.useContext(CurrentUserContext);
-  const { mainContent } = useTranslation(language);
+  const { MAIN_CONTENT } = useTranslation(language);
   const [showInstallButton, setShowInstallButton] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [userDismissed, setUserDismissed] = useState(false);
@@ -68,7 +68,7 @@ function PwaButton() {
   return (
     showInstallButton && (
       <button className="pwa-button" onClick={promptToInstall} type="button">
-        {mainContent.PWA_BUTTON}
+        {MAIN_CONTENT.PWA_BUTTON}
         <span className="pwa-button__arrow" />
       </button>
     )

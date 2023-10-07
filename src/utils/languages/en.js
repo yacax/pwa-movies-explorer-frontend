@@ -1,97 +1,87 @@
-const navigationTexts = {
-  signUp: 'Sign Up',
-  signIn: 'Sign In',
-  navigationMainPage: 'Home',
-  navigationMovies: 'Movies',
-  navigationSavedMovies: 'Saved Movies',
-  navigationProfile: 'Account',
-  navigationClosePopup: 'Close',
+const NAVIGATION_TEXTS = {
+  SIGN_UP: 'Sign Up',
+  SIGN_IN: 'Sign In',
+  NAVIGATION_MAIN_PAGE: 'Home',
+  NAVIGATION_MOVIES: 'Movies',
+  NAVIGATION_SAVED_MOVIES: 'Saved Movies',
+  NAVIGATION_PROFILE: 'Account',
+  NAVIGATION_CLOSE_POPUP: 'Close',
 };
 
-const linksNames = {
-  aboutProject: 'About the Project',
-  aboutTech: 'Technologies',
-  aboutStudent: 'Student',
-  github: 'Github',
+const LINKS_NAMES = {
+  ABOUT_PROJECT: 'About the Project',
+  ABOUT_TECH: 'Technologies',
+  ABOUT_STUDENT: 'Student',
+  GITHUB: 'Github',
 };
 
-const mainContent = {
-  promo: 'The student project from the\u00A0Web Development Faculty',
-  aboutProject: 'About the Project',
-  aboutProjectFirstColumnTitle: 'The diploma project included 5 stages',
-  aboutProjectFirstColumnText:
+const MAIN_CONTENT = {
+  PROMO: 'The student project from the\u00A0Web Development Faculty',
+  ABOUT_PROJECT: 'About the Project',
+  ABOUT_PROJECT_FIRST_COLUMN_TITLE: 'The diploma project included 5 stages',
+  ABOUT_PROJECT_FIRST_COLUMN_TEXT:
     'Drafting a plan, backend development, markup, adding functionality, and final refinements.',
-  aboutProjectSecondColumnTitle: 'The diploma took 5 weeks to complete',
-  aboutProjectSecondColumnText:
+  ABOUT_PROJECT_SECOND_COLUMN_TITLE: 'The diploma took 5 weeks to complete',
+  ABOUT_PROJECT_SECOND_COLUMN_TEXT:
     'Each stage had a soft and hard deadline, which needed to be met for a successful defense.',
-  firstGantPart: '1 week',
-  secondGantPart: '4 weeks',
-  firstGantComment: 'Back-end',
-  secondGantComment: 'Front-end',
-  aboutTech: 'Technologies',
-  aboutTechTitle: '7 technologies',
-  aboutTechSubtitle:
+  FIRST_GANT_PART: '1 week',
+  SECOND_GANT_PART: '4 weeks',
+  FIRST_GANT_COMMENT: 'Back-end',
+  SECOND_GANT_COMMENT: 'Front-end',
+  ABOUT_TECH: 'Technologies',
+  ABOUT_TECH_TITLE: '7 technologies',
+  ABOUT_TECH_SUBTITLE:
     'During the web development course, we mastered the technologies used in the diploma project.',
-  aboutTechFirstColumnTitle: 'HTML',
-  aboutTechSecondColumnTitle: 'CSS',
-  aboutTechThirdColumnTitle: 'JS',
-  aboutTechFourthColumnTitle: 'React',
-  aboutTechFifthColumnTitle: 'Git',
-  aboutTechSixthColumnTitle: 'Express.js',
-  aboutTechSeventhColumnTitle: 'mongoDB',
-  aboutStudent: 'Student',
-  aboutStudentTitle: 'Alex',
-  aboutStudentSubtitle: 'Frontend Developer',
-  aboutStudentText:
+  ABOUT_TECH_FIRST_COLUMN_TITLE: 'HTML',
+  ABOUT_TECH_SECOND_COLUMN_TITLE: 'CSS',
+  ABOUT_TECH_THIRD_COLUMN_TITLE: 'JS',
+  ABOUT_TECH_FOURTH_COLUMN_TITLE: 'React',
+  ABOUT_TECH_FIFTH_COLUMN_TITLE: 'Git',
+  ABOUT_TECH_SIXTH_COLUMN_TITLE: 'Express.js',
+  ABOUT_TECH_SEVENTH_COLUMN_TITLE: 'mongoDB',
+  ABOUT_STUDENT: 'Student',
+  ABOUT_STUDENT_TITLE: 'Alex',
+  ABOUT_STUDENT_SUBTITLE: 'Frontend Developer',
+  ABOUT_STUDENT_TEXT:
     'I was born and raised in Saint Petersburg and graduated from the Faculty of CTU at ITMO. I have a wife and two daughters. I love listening to music, attending concerts, playing volleyball, and am keen on running. For some time I was an engineer, then worked in sales. I have always loved design, and recently I started coding. After completing the Web Developer course from Yandex Practicum, I will be doing cool stuff online.',
-  aboutStudentAlt: 'Это я!',
-  portfolio: 'Portfolio',
-  portfolioTitle: 'Portfolio',
-  portfolioSiteStatic: 'Static Site',
-  portfolioSiteAdaptive: 'Adaptive Site',
-  portfolioSiteSinglePage: 'Single Page Application',
+  ABOUT_STUDENT_ALT: 'Это я!',
+  PORTFOLIO: 'Portfolio',
+  PORTFOLIO_TITLE: 'Portfolio',
+  PORTFOLIO_SITE_STATIC: 'Static Site',
+  PORTFOLIO_SITE_ADAPTIVE: 'Adaptive Site',
+  PORTFOLIO_SITE_SINGLE_PAGE: 'Single Page Application',
   PWA_BUTTON: 'Install the app',
 };
 
-const footerTexts = {
-  copyRightText: '© Yandex.Practicum Educational Project x\u00A0BeatFilm.',
-  footerLinkText: 'Yandex.Practicum',
+const FOOTER_TEXT = {
+  COPYRIGHT_TEXT: '© Yandex.Practicum Educational Project x\u00A0BeatFilm.',
+  FOOTRE_LINK_TEXT: 'Yandex.Practicum',
 };
 
-const loginTexts = {
-  loginTitle: 'Glad to see you!',
-  loginEmail: 'E-mail',
-  loginPassword: 'Password',
-  loginButton: 'Log in',
-  loginText: 'Not registered yet?',
-  loginLink: 'Sign up',
+const LOGIN_TEXT = {
+  LOGIN_TITLE: 'Glad to see you!',
+  LOGIN_EMAIL: 'E-mail',
+  LOGIN_PASSWORD: 'Password',
+  LOGIN_BUTTON: 'Log in',
+  LOGIN_TEXT: 'Not registered yet?',
+  LOGIN_LINK: 'Sign up',
 };
 
-const registerTexts = {
-  registerTitle: 'Welcome!',
-  registerName: 'Name',
-  registerEmail: 'E-mail',
-  registerPassword: 'Password',
-  registerPasswordAgain: 'Repeat Password',
-  registerButton: 'Sign Up',
-  registerText: 'Already registered?',
-  registerLink: 'Sign In',
+const REGISTER_TEXT = {
+  REGISTER_TITLE: 'Welcome!',
+  REGISTER_NAME: 'Name',
+  REGISTER_EMAIL: 'E-mail',
+  REGISTER_PASSWORD: 'Password',
+  REGISTER_PASSWORD_AGAIN: 'Repeat Password',
+  REGISTER_BUTTON: 'Sign Up',
+  REGISTER_TEXT: 'Already registered?',
+  REGISTER_LINK: 'Sign In',
 };
 
-const searchFormTexts = {
-  searchFormPlaceholder: 'Movie',
-  searchFormLabel: 'Find a movie',
-  searchFormCheckboxText: 'Short films',
-};
-
-const moviesTexts = {
-  moviesTitle: 'Movies',
-  moviesSearch: 'Movie',
-  moviesCheckbox: 'Short films',
-  moviesPreloader: 'Searching for movies...',
-  moviesButton: 'More',
-  moviesButtonDisabled: 'No more movies available',
-  moviesButtonLoad: 'Load more',
+const SEARCH_FORM_TEXT = {
+  SEARCH_FORM_PLACEHOLDER: 'Movie',
+  SEARCH_FORM_LABLE: 'Find a movie',
+  SEARCH_FORM_CHECKBOX_TEXT: 'Short films',
 };
 
 const MOVIES_CARD = {
@@ -122,7 +112,7 @@ const FORM_ERRORS_MESSAGES = {
   CONFIRM_PASSWORD: 'Passwords do not match',
 };
 
-const profileTexts = {
+const PROFILE_TEXTS = {
   PROFILE_TITLE: 'Hello',
   PROFILE_EMAIL: 'E-mail',
   PROFILE_NAME: 'Name',
@@ -147,18 +137,17 @@ const LANGUAGE_DIRECTION = 'ltr';
 const IS_RIGTH_TO_LEFT = LANGUAGE_DIRECTION === 'rtl';
 
 export default {
-  navigationTexts,
-  linksNames,
-  mainContent,
-  footerTexts,
-  loginTexts,
-  registerTexts,
-  searchFormTexts,
-  moviesTexts,
+  NAVIGATION_TEXTS,
+  LINKS_NAMES,
+  MAIN_CONTENT,
+  FOOTER_TEXT,
+  LOGIN_TEXT,
+  REGISTER_TEXT,
+  SEARCH_FORM_TEXT,
   ERROR_MESSAGES_TEXTS,
   AUTH_MESSAGES,
   FORM_ERRORS_MESSAGES,
-  profileTexts,
+  PROFILE_TEXTS,
   MOVIES_CARD,
   MOVIES_CARD_LIST,
   NOT_FOUND_PAGE,

@@ -10,7 +10,7 @@ function Profile({ changeProfile, logOut }) {
   const currentUser = React.useContext(CurrentUserContext);
   const [isEdit, setIsEdit] = useState(false);
   const refName = useRef();
-  const { profileTexts } = useTranslation(currentUser.language);
+  const { PROFILE_TEXTS } = useTranslation(currentUser.language);
   const { form, setForm, errors, handleChange, isFormValid, updateFormInput } =
     useForm({
       name: currentUser.name,
@@ -61,7 +61,7 @@ function Profile({ changeProfile, logOut }) {
       <Header />
       <main className="profile">
         <h2 className="profile__title">
-          {profileTexts.PROFILE_TITLE}, {currentUser.name}!
+          {PROFILE_TEXTS.PROFILE_TITLE}, {currentUser.name}!
         </h2>
         <form
           className="profile__form"
@@ -74,7 +74,7 @@ function Profile({ changeProfile, logOut }) {
             }`}
             htmlFor="profile-name-input"
           >
-            {profileTexts.PROFILE_NAME}
+            {PROFILE_TEXTS.PROFILE_NAME}
             <input
               ref={refName}
               type="text"
@@ -82,7 +82,7 @@ function Profile({ changeProfile, logOut }) {
                 isEdit ? 'profile__input_type_edit' : ''
               }`}
               name="name"
-              placeholder={profileTexts.PROFILE_NAME}
+              placeholder={PROFILE_TEXTS.PROFILE_NAME}
               required
               minLength="2"
               maxLength="30"
@@ -110,7 +110,7 @@ function Profile({ changeProfile, logOut }) {
                 isEdit ? 'profile__input_type_edit' : ''
               }`}
               name="email"
-              placeholder={profileTexts.PROFILE_EMAIL}
+              placeholder={PROFILE_TEXTS.PROFILE_EMAIL}
               required
               minLength="2"
               maxLength="30"
@@ -131,16 +131,16 @@ function Profile({ changeProfile, logOut }) {
               type="button"
               className="profile__link"
               name="profile-change"
-              aria-label={profileTexts.PROFILE_EDIT_ARIA_LABLE}
-              value={profileTexts.PROFILE_EDIT_BUTTON}
+              aria-label={PROFILE_TEXTS.PROFILE_EDIT_ARIA_LABLE}
+              value={PROFILE_TEXTS.PROFILE_EDIT_BUTTON}
               onClick={isEditHandler}
             />
             <input
               type="button"
               className="profile__link profile__link_color_red"
               name="profile-logout"
-              aria-label={profileTexts.PROFILE_LOGOUT_ARIA_LABLE}
-              value={profileTexts.PROFILE_LOGOUT_BUTTON}
+              aria-label={PROFILE_TEXTS.PROFILE_LOGOUT_ARIA_LABLE}
+              value={PROFILE_TEXTS.PROFILE_LOGOUT_BUTTON}
               onClick={logOut}
             />
           </div>
@@ -152,8 +152,8 @@ function Profile({ changeProfile, logOut }) {
               !isFormValid ? 'profile__button_disabled' : ''
             }`}
             name="profile-submit"
-            aria-label={profileTexts.PROFILE_SAVE_ARIA_LABLE}
-            value={profileTexts.PROFILE_SAVE_BUTTON}
+            aria-label={PROFILE_TEXTS.PROFILE_SAVE_ARIA_LABLE}
+            value={PROFILE_TEXTS.PROFILE_SAVE_BUTTON}
             disabled={!isFormValid}
           />
         )}

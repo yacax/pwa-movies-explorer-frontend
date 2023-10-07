@@ -34,7 +34,7 @@ Loading.propTypes = {
 };
 
 Loading.defaultProps = {
-  language: 'EN',
+  language: 'en',
 };
 
 export default Loading;

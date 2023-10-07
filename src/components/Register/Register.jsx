@@ -14,7 +14,7 @@ function Register({ registerUser }) {
       confirmPassword: '',
     });
   const { language } = React.useContext(CurrentUserContext);
-  const { registerTexts, IS_RIGTH_TO_LEFT } = useTranslation(language);
+  const { REGISTER_TEXT, IS_RIGTH_TO_LEFT } = useTranslation(language);
   const inputClassNames = `page-with-form__input ${
     IS_RIGTH_TO_LEFT ? 'page-with-form__input_align_right' : ''
   } `;
@@ -30,23 +30,23 @@ function Register({ registerUser }) {
 
   return (
     <PageWithForm
-      pageTitle={registerTexts.registerTitle}
+      pageTitle={REGISTER_TEXT.REGISTER_TITLE}
       pageName="register"
-      submitButtonText={registerTexts.registerButton}
-      pageNavigationLink="/signin"
-      pageNavigationLinkText={registerTexts.registerLink}
-      pageNavigationLinkComment={registerTexts.registerText}
+      submitButtonText={REGISTER_TEXT.REGISTER_BUTTON}
+      pageNavigationLink={`/${language}/signin`}
+      pageNavigationLinkText={REGISTER_TEXT.REGISTER_LINK}
+      pageNavigationLinkComment={REGISTER_TEXT.REGISTER_TEXT}
       isFormValid={isFormValid}
       onSubmit={handleSubmit}
     >
       <label className="page-with-form__input-label" htmlFor="name">
-        {registerTexts.registerName}
+        {REGISTER_TEXT.REGISTER_NAME}
         <input
           type="text"
           autoComplete="name"
           className={inputClassNames}
           name="name"
-          placeholder={registerTexts.registerName}
+          placeholder={REGISTER_TEXT.REGISTER_NAME}
           required
           minLength="2"
           maxLength="30"
@@ -57,13 +57,13 @@ function Register({ registerUser }) {
         <span className="page-with-form__error-text">{errors.name}</span>
       </label>
       <label className="page-with-form__input-label" htmlFor="email">
-        {registerTexts.registerEmail}
+        {REGISTER_TEXT.REGISTER_EMAIL}
         <input
           type="email"
           autoComplete="email"
           className={inputClassNames}
           name="email"
-          placeholder={registerTexts.registerEmail}
+          placeholder={REGISTER_TEXT.REGISTER_EMAIL}
           required
           maxLength="30"
           id="email"
@@ -74,13 +74,13 @@ function Register({ registerUser }) {
       </label>
 
       <label className="page-with-form__input-label" htmlFor="password">
-        {registerTexts.registerPassword}
+        {REGISTER_TEXT.REGISTER_PASSWORD}
         <input
           type="password"
           autoComplete="current-password"
           className={inputClassNames}
           name="password"
-          placeholder={registerTexts.registerPassword}
+          placeholder={REGISTER_TEXT.REGISTER_PASSWORD}
           required
           minLength="8"
           maxLength="40"
@@ -91,13 +91,13 @@ function Register({ registerUser }) {
         <span className="page-with-form__error-text">{errors.password}</span>
       </label>
       <label className="page-with-form__input-label" htmlFor="password">
-        {registerTexts.registerPasswordAgain}
+        {REGISTER_TEXT.REGISTER_PASSWORD_AGAIN}
         <input
           type="password"
           autoComplete="new-password"
           className={inputClassNames}
           name="confirmPassword"
-          placeholder={registerTexts.registerPasswordAgain}
+          placeholder={REGISTER_TEXT.REGISTER_PASSWORD_AGAIN}
           required
           maxLength="40"
           id="confirmPassword"

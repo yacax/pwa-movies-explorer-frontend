@@ -41,8 +41,6 @@
   color: #000;
 }
 
-
-
 .language-panel__list {
   position: absolute;
   top: 20px;
@@ -53,7 +51,6 @@
 .language-panel__list_active {
   display: block;
 }
-
 
 @media screen and (max-width: 767px) {
   .language-panel__button {

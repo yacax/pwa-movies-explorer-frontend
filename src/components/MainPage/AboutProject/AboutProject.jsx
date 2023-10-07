@@ -8,13 +8,13 @@ function AboutProject() {
   const { language } = useContext(CurrentUserContext);
   const translation = useTranslation(language);
   return (
-    <SectionTemplate title={translation.mainContent.aboutProject} id="about">
+    <SectionTemplate title={translation.MAIN_CONTENT.ABOUT_PROJECT} id="about">
       <div className="about-project">
         <table className="about-project__table">
           <thead>
             <tr>
               <th className="about-project__table-header">
-                {translation.mainContent.aboutProjectFirstColumnTitle}
+                {translation.MAIN_CONTENT.ABOUT_PROJECT_FIRST_COLUMN_TITLE}
               </th>
             </tr>
           </thead>
@@ -26,7 +26,7 @@ function AboutProject() {
             </tr>
             <tr className="about-project__table-row">
               <td className="about-project__table-cell">
-                {translation.mainContent.aboutProjectFirstColumnText}
+                {translation.MAIN_CONTENT.ABOUT_PROJECT_FIRST_COLUMN_TEXT}
               </td>
             </tr>
           </tbody>
@@ -36,7 +36,7 @@ function AboutProject() {
           <thead>
             <tr>
               <th className="about-project__table-header">
-                {translation.mainContent.aboutProjectSecondColumnTitle}
+                {translation.MAIN_CONTENT.ABOUT_PROJECT_SECOND_COLUMN_TITLE}
               </th>
             </tr>
           </thead>
@@ -48,7 +48,7 @@ function AboutProject() {
             </tr>
             <tr className="about-project__table-row">
               <td className="about-project__table-cell">
-                {translation.mainContent.aboutProjectSecondColumnText}
+                {translation.MAIN_CONTENT.ABOUT_PROJECT_SECOND_COLUMN_TEXT}
               </td>
             </tr>
           </tbody>
@@ -56,15 +56,15 @@ function AboutProject() {
         <ul className="about-project__gant-container">
           <li
             className="about-project__gant about-project__gant_color_green"
-            data-content={translation.mainContent.firstGantComment}
+            data-content={translation.MAIN_CONTENT.FIRST_GANT_COMMENT}
           >
-            {translation.mainContent.firstGantPart}
+            {translation.MAIN_CONTENT.FIRST_GANT_PART}
           </li>
           <li
             className="about-project__gant about-project__gant_color_grey"
-            data-content={translation.mainContent.secondGantComment}
+            data-content={translation.MAIN_CONTENT.SECOND_GANT_COMMENT}
           >
-            {translation.mainContent.secondGantPart}
+            {translation.MAIN_CONTENT.SECOND_GANT_PART}
           </li>
         </ul>
       </div>

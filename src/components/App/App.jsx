@@ -1,5 +1,11 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import {
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  Navigate,
+} from 'react-router-dom';
 import './App.css';
 
 import CurrentUserContext from '../../contexts/CurrentUserContext';
@@ -17,6 +23,7 @@ import mainApi from '../../utils/MainApi';
 import useTranslation from '../../hooks/useTranslation';
 import usePopup from '../../hooks/usePopup';
 import Loading from '../Loading/Loading';
+import usePath from '../../hooks/usePath';
 
 const MainPage = lazy(() => import('../MainPage/MainPage'));
 const Movies = lazy(() => import('../Movies/Movies'));
@@ -32,14 +39,17 @@ function App() {
     name: '',
     email: '',
     isLoggedIn: false,
-    language: '',
+    language: DEFAULT_LANGUAGE,
   });
   const [token, setToken] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
-  const { AUTH_MESSAGES } = useTranslation(currentUser.language);
+  const { pathWithoutLanguage, pathMatchWithLanguage } = usePath();
+  const { AUTH_MESSAGES, IS_RIGTH_TO_LEFT } = useTranslation(
+    currentUser.language
+  );
   const [showInfoMessage, isOpen, message, isMessageType] = usePopup();
-  const match = navigator.language.match(/^([a-z]{2})/i);
+  const matchBrowserLanguage = navigator.language.match(REGEXP.BROWSER_LANG);
   const userTest = (id, name, email) => !!(id && name && email);
   const jwtTest = (jwt) => {
     const jwtPattern = REGEXP.JWT_PATTERN;
@@ -63,8 +73,12 @@ function App() {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const { savedMovies, setSavedMovies, saveMovieButtonHandle } =
-    useMovie(currentUser);
+  const {
+    savedMovies,
+    setSavedMovies,
+    saveMovieButtonHandle,
+    isChangingAction,
+  } = useMovie(currentUser);
 
   useEffect(() => {
     if (savedMovies.length === 0) {
@@ -78,8 +92,19 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (VALID_PATHS.includes(location.pathname)) {
+    if (VALID_PATHS.includes(pathWithoutLanguage)) {
       localStorage.setItem('lastValidPath', location.pathname);
+    }
+    if (
+      pathMatchWithLanguage &&
+      pathMatchWithLanguage[1] &&
+      SUPPORTED_LANGUAGES.includes(pathMatchWithLanguage[1]) &&
+      currentUser.language !== pathMatchWithLanguage[1]
+    ) {
+      setCurrentUser((prevUser) => ({
+        ...prevUser,
+        language: pathMatchWithLanguage[1],
+      }));
     }
   }, [location]);
 
@@ -89,7 +114,7 @@ function App() {
     }
     document.documentElement.setAttribute(
       'dir',
-      currentUser.language === 'עבר' ? 'rtl' : 'ltr'
+      IS_RIGTH_TO_LEFT ? 'rtl' : 'ltr'
     );
   }, [currentUser.language]);
 
@@ -111,7 +136,9 @@ function App() {
     if (currentUser.language === '') {
       const storedLanguage = localStorage.getItem('languageLocalStorage');
       const browserLanguage =
-        match && match[1] ? match[1].toUpperCase() : DEFAULT_LANGUAGE;
+        matchBrowserLanguage && matchBrowserLanguage[1]
+          ? matchBrowserLanguage[1]
+          : DEFAULT_LANGUAGE;
 
       const preferredLanguage =
         storedLanguage ||
@@ -124,6 +151,7 @@ function App() {
         language: preferredLanguage,
       }));
     }
+
     const jwt = localStorage.getItem('jwt');
     setToken(jwt);
     mainApi.setToken(jwt);
@@ -185,7 +213,7 @@ function App() {
           isLoggedIn: true,
         }));
         showInfoMessage(`${AUTH_MESSAGES.HELLO} ${res.data.name}!`, true);
-        navigate('/movies');
+        navigate(`/${currentUser.language}/movies`);
       })
       .catch((err) => {
         console.log(err);
@@ -227,7 +255,7 @@ function App() {
                 email: resEmail,
                 isLoggedIn: true,
               }));
-              navigate('/movies');
+              navigate(`/${currentUser.language}/movies`);
             } else {
               showInfoMessage(AUTH_MESSAGES.SERVER_RESP_ERROR);
             }
@@ -266,7 +294,7 @@ function App() {
   };
 
   const logOut = () => {
-    navigate('/');
+    navigate(`/${DEFAULT_LANGUAGE}/`);
     setToken('');
     setCurrentUser((prevState) => ({
       ...prevState,
@@ -274,7 +302,6 @@ function App() {
       name: '',
       email: '',
       isLoggedIn: false,
-      language: '',
     }));
     localStorage.removeItem('jwt');
     localStorage.removeItem('lastSearchDataLocalStorage');
@@ -295,12 +322,21 @@ function App() {
           <Suspense fallback={<Loading />}>
             <Routes>
               <Route
-                path="/movies"
+                path="/"
+                element={
+                  <Navigate
+                    to={`/${currentUser.language || DEFAULT_LANGUAGE}/`}
+                  />
+                }
+              />
+              <Route
+                path="/:lang/movies"
                 element={
                   <ProtectedRoute
-                    path="/movies"
+                    path="/:lang/movies"
                     component={Movies}
                     savedMovies={savedMovies}
+                    isChangingAction={isChangingAction}
                     handleMovieButton={saveMovieButtonHandle}
                     allMoviesFromMoviesServer={allMoviesFromMoviesServer}
                     setAllMoviesFromMoviesServer={setAllMoviesFromMoviesServer}
@@ -308,30 +344,31 @@ function App() {
                 }
               />
               <Route
-                path="/saved-movies"
+                path="/:lang/saved-movies"
                 element={
                   <ProtectedRoute
-                    path="/saved-movies"
+                    path="/:lang/saved-movies"
                     component={SavedMovies}
                     savedMovies={savedMovies}
+                    isChangingAction={isChangingAction}
                     handleMovieButton={saveMovieButtonHandle}
                   />
                 }
               />
               <Route
-                path="/profile"
+                path="/:lang/profile"
                 element={
                   <ProtectedRoute
-                    path="/profile"
+                    path="/:lang/profile"
                     component={Profile}
                     changeProfile={changeProfile}
                     logOut={logOut}
                   />
                 }
               />
-              <Route path="/" element={<MainPage />} />
+              <Route path="/:lang" element={<MainPage />} />
               <Route
-                path="/signin"
+                path="/:lang/signin"
                 element={
                   <IsLogginedProtectedRoute
                     component={Login}
@@ -340,7 +377,7 @@ function App() {
                 }
               />
               <Route
-                path="/signup"
+                path="/:lang/signup"
                 element={
                   <IsLogginedProtectedRoute
                     component={Register}

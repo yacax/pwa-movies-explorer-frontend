@@ -7,8 +7,8 @@ import Navigation from '../Navigation/Navigation';
 
 function Header() {
   const location = useLocation();
-  const isMain = location.pathname === '/';
   const user = React.useContext(CurrentUserContext);
+  const isMain = location.pathname === `/${user.language}/`;
   const [isPopup, setIsPopup] = useState(false);
 
   const popupNavigationHandler = () => {
@@ -18,7 +18,7 @@ function Header() {
   return (
     <header className={`header ${!isMain ? 'header_logged' : ''}`}>
       <div className="header__base">
-        <NavLink to="/" className="header__logo" />
+        <NavLink to={`/${user.language}/`} className="header__logo" />
         <Navigation isPopup={isPopup} closePopup={popupNavigationHandler} />
         {user.isLoggedIn && (
           <input

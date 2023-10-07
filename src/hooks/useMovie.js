@@ -3,8 +3,10 @@ import mainApi from '../utils/MainApi';
 
 function useMovie(currentUser) {
   const [savedMovies, setSavedMovies] = useState([]);
+  const [isChangingAction, setIsChangingAction] = useState(false);
 
   const saveMovie = (movie) => {
+    setIsChangingAction(true);
     mainApi
       .postMovie(movie)
       .then((response) => {
@@ -13,17 +15,24 @@ function useMovie(currentUser) {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setIsChangingAction(false);
       });
   };
 
   const deleteMovie = ({ _id }) => {
+    setIsChangingAction(true);
     mainApi
       .deleteMovie(_id)
       .then(() => {
         const updatedSavedMovies = savedMovies.filter((m) => m._id !== _id);
         setSavedMovies(updatedSavedMovies);
       })
-      .catch((err) => console.error('Error deleting movie:', err));
+      .catch((err) => console.error('Error deleting movie:', err))
+      .finally(() => {
+        setIsChangingAction(false);
+      });
   };
 
   const saveMovieButtonHandle = (movie) => {
@@ -79,6 +88,7 @@ function useMovie(currentUser) {
     setSavedMovies,
     saveMovieButtonHandle,
     updateSavedMovies,
+    isChangingAction,
   };
 }
 

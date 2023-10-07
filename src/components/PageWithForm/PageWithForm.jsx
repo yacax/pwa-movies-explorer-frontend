@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './PageWithForm.css';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 function PageWithForm({
   pageName,
@@ -14,10 +15,12 @@ function PageWithForm({
   pageNavigationLinkText,
   pageNavigationLinkComment,
 }) {
+  const { language } = React.useContext(CurrentUserContext);
+
   return (
     <main className={`page-with-form page-with-form_name_${pageName}`}>
       <div className="page-with-form__top-container">
-        <NavLink to="/" className="page-with-form__logo" />
+        <NavLink to={`/${language}/`} className="page-with-form__logo" />
         <h2 className="page-with-form__title">{pageTitle}</h2>
         <form
           className="page-with-form__form"

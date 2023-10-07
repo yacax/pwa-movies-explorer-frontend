@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import useTranslation from '../../hooks/useTranslation';
 
-function MoviesCard({ movie, handleMovieButton }) {
+function MoviesCard({ movie, handleMovieButton, isChangingAction }) {
   const { language } = React.useContext(CurrentUserContext);
   const translation = useTranslation(language);
   const location = useLocation();
 
-  const savedMoviesPage = location.pathname === '/saved-movies';
+  const savedMoviesPage = location.pathname === `/${language}/saved-movies`;
   const toDoDurationInHours = (min) => `${Math.floor(min / 60)}ч ${min % 60}м`;
   const durationInHours = toDoDurationInHours(movie.duration);
 
@@ -20,8 +20,7 @@ function MoviesCard({ movie, handleMovieButton }) {
       <p className="movies-card__text">{durationInHours}</p>
       <input
         type="button"
-        className={`movies-card__save-button
-        ${
+        className={`movies-card__save-button ${
           movie.save && !savedMoviesPage
             ? 'movies-card__save-button_type_active'
             : ''
@@ -33,6 +32,7 @@ function MoviesCard({ movie, handleMovieButton }) {
         onClick={() => {
           handleMovieButton(movie);
         }}
+        disabled={isChangingAction}
       />
       <a
         className="movies-card__trailer-link"
@@ -60,6 +60,7 @@ MoviesCard.propTypes = {
     trailerLink: PropTypes.string.isRequired,
   }),
   handleMovieButton: PropTypes.func.isRequired,
+  isChangingAction: PropTypes.bool,
 };
 
 MoviesCard.defaultProps = {
@@ -71,6 +72,7 @@ MoviesCard.defaultProps = {
     image: '',
     save: false,
   },
+  isChangingAction: false,
 };
 
 export default MoviesCard;

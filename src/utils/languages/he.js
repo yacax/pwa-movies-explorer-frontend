@@ -1,96 +1,87 @@
-const navigationTexts = {
-  signUp: 'הרשמה',
-  signIn: 'כניסה',
-  navigationMainPage: 'עמוד ראשי',
-  navigationMovies: 'סרטים',
-  navigationSavedMovies: 'סרטים שמורים',
-  navigationProfile: 'חשבון',
-  navigationClosePopup: 'סגור',
+const NAVIGATION_TEXTS = {
+  SIGN_UP: 'הרשמה',
+  SIGN_IN: 'כניסה',
+  NAVIGATION_MAIN_PAGE: 'עמוד ראשי',
+  NAVIGATION_MOVIES: 'סרטים',
+  NAVIGATION_SAVED_MOVIES: 'סרטים שמורים',
+  NAVIGATION_PROFILE: 'חשבון',
+  NAVIGATION_CLOSE_POPUP: 'סגור',
 };
 
-const linksNames = {
-  aboutProject: 'אודות הפרויקט',
-  aboutTech: 'טכנולוגיה',
-  aboutStudent: 'סטודנט',
-  github: 'Github',
+const LINKS_NAMES = {
+  ABOUT_PROJECT: 'אודות הפרויקט',
+  ABOUT_TECH: 'טכנולוגיה',
+  ABOUT_STUDENT: 'סטודנט',
+  GITHUB: 'Github',
 };
 
-const mainContent = {
-  promo: 'פרויקט לימוד של סטודנט מהפקולטה לפיתוח אתרים',
-  aboutProject: 'אודות הפרויקט',
-  aboutProjectFirstColumnTitle: 'הפרויקט הסופי כלל 5 שלבים',
-  aboutProjectFirstColumnText:
+const MAIN_CONTENT = {
+  PROMO: 'פרויקט לימוד של סטודנט מהפקולטה לפיתוח אתרים',
+  ABOUT_PROJECT: 'אודות הפרויקט',
+  ABOUT_PROJECT_FIRST_COLUMN_TITLE: 'הפרויקט הסופי כלל 5 שלבים',
+  ABOUT_PROJECT_FIRST_COLUMN_TEXT:
     'תכנון, עבודה על ה-Backend, עיצוב, הוספת פונקציונליות ושיפורים סופיים.',
-  aboutProjectSecondColumnTitle: 'לפרויקט הסופי לקח 5 שבועות',
-  aboutProjectSecondColumnText:
+  ABOUT_PROJECT_SECOND_COLUMN_TITLE: 'לפרויקט הסופי לקח 5 שבועות',
+  ABOUT_PROJECT_SECOND_COLUMN_TEXT:
     'לכל שלב היו דדליינים רכים וקשים, שהיה צריך לשמור עליהם כדי להצליח בהגנה.',
-  firstGantPart: 'שבוע 1',
-  secondGantPart: '4 שבועות',
-  firstGantComment: 'Backend',
-  secondGantComment: 'Frontend',
-  aboutTech: 'טכנולוגיות',
-  aboutTechTitle: '7 טכנולוגיות',
-  aboutTechSubtitle: 'בקורס פיתוח אתרים למדנו טכנולוגיות שהוחלו בפרויקט הסופי.',
-  aboutTechFirstColumnTitle: 'HTML',
-  aboutTechSecondColumnTitle: 'CSS',
-  aboutTechThirdColumnTitle: 'JS',
-  aboutTechFourthColumnTitle: 'React',
-  aboutTechFifthColumnTitle: 'Git',
-  aboutTechSixthColumnTitle: 'Express.js',
-  aboutTechSeventhColumnTitle: 'mongoDB',
-  aboutStudent: 'הסטודנט',
-  aboutStudentTitle: 'אלכס',
-  aboutStudentSubtitle: 'מפתח Frontend',
-  aboutStudentText:
+  FIRST_GANT_PART: 'שבוע 1',
+  SECOND_GANT_PART: '4 שבועות',
+  FIRST_GANT_COMMENT: 'Backend',
+  SECOND_GANT_COMMENT: 'Frontend',
+  ABOUT_TECH: 'טכנולוגיות',
+  ABOUT_TECH_TITLE: '7 טכנולוגיות',
+  ABOUT_TECH_SUBTITLE:
+    'בקורס פיתוח אתרים למדנו טכנולוגיות שהוחלו בפרויקט הסופי.',
+  ABOUT_TECH_FIRST_COLUMN_TITLE: 'HTML',
+  ABOUT_TECH_SECOND_COLUMN_TITLE: 'CSS',
+  ABOUT_TECH_THIRD_COLUMN_TITLE: 'JS',
+  ABOUT_TECH_FOURTH_COLUMN_TITLE: 'React',
+  ABOUT_TECH_FIFTH_COLUMN_TITLE: 'Git',
+  ABOUT_TECH_SIXTH_COLUMN_TITLE: 'Express.js',
+  ABOUT_TECH_SEVENTH_COLUMN_TITLE: 'mongoDB',
+  ABOUT_STUDENT: 'הסטודנט',
+  ABOUT_STUDENT_TITLE: 'אלכס',
+  ABOUT_STUDENT_SUBTITLE: 'מפתח Frontend',
+  ABOUT_STUDENT_TEXT:
     'נולדתי וגדלתי בסנקט פטרבורג, סיימתי את הפקולטה למדעי המחשב ב-ITMO. יש לי אישה ושתי בנות. אני אוהב להאזין למוזיקה, ללכת לקונצרטים, לשחק כדורעף ולרוץ. הייתי מהנדס תוכנה, ולאחר מכן עבדתי במכירות. תמיד אהבתי עיצוב, ולאחרונה התחלתי לקודד. לאחר שאסיים את קורס פיתוח אתרים ב-Yandex Practicum, אני אפתח דברים מדהימים ברשת.',
-  aboutStudentAlt: 'זה אני!',
-  portfolio: 'תיק עבודות',
-  portfolioTitle: 'תיק עבודות',
-  portfolioSiteStatic: 'אתר סטטי',
-  portfolioSiteAdaptive: 'אתר מותאם',
-  portfolioSiteSinglePage: 'אפליקציה דף אחד',
+  ABOUT_STUDENT_ALT: 'זה אני!',
+  PORTFOLIO: 'תיק עבודות',
+  PORTFOLIO_TITLE: 'תיק עבודות',
+  PORTFOLIO_SITE_STATIC: 'אתר סטטי',
+  PORTFOLIO_SITE_ADAPTIVE: 'אתר מותאם',
+  PORTFOLIO_SITE_SINGLE_PAGE: 'אפליקציה דף אחד',
   PWA_BUTTON: 'התקן אפליקציה',
 };
 
-const footerTexts = {
-  copyRightText: '© פרויקט לימודי של יאנדקס.פרקטיקום ו-BeatFilm.',
-  footerLinkText: 'יאנדקס.פרקטיקום',
+const FOOTER_TEXT = {
+  COPYRIGHT_TEXT: '© פרויקט לימודי של יאנדקס.פרקטיקום ו-BeatFilm.',
+  FOOTRE_LINK_TEXT: 'יאנדקס.פרקטיקום',
 };
 
-const loginTexts = {
-  loginTitle: 'שמחים לראותך!',
-  loginEmail: 'דוא"ל',
-  loginPassword: 'סיסמה',
-  loginButton: 'להתחבר',
-  loginText: 'עדיין לא רשומים?',
-  loginLink: 'הרשמה',
+const LOGIN_TEXT = {
+  LOGIN_TITLE: 'שמחים לראותך!',
+  LOGIN_EMAIL: 'דוא"ל',
+  LOGIN_PASSWORD: 'סיסמה',
+  LOGIN_BUTTON: 'להתחבר',
+  LOGIN_TEXT: 'עדיין לא רשומים?',
+  LOGIN_LINK: 'הרשמה',
 };
 
-const registerTexts = {
-  registerTitle: 'ברוכים הבאים!',
-  registerName: 'שם',
-  registerEmail: 'דוא"ל',
-  registerPassword: 'סיסמה',
-  registerPasswordAgain: 'חזור על הסיסמה',
-  registerButton: 'להירשם',
-  registerText: 'כבר רשומים?',
-  registerLink: 'להתחבר',
+const REGISTER_TEXT = {
+  REGISTER_TITLE: 'ברוכים הבאים!',
+  REGISTER_NAME: 'שם',
+  REGISTER_EMAIL: 'דוא"ל',
+  REGISTER_PASSWORD: 'סיסמה',
+  REGISTER_PASSWORD_AGAIN: 'חזור על הסיסמה',
+  REGISTER_BUTTON: 'להירשם',
+  REGISTER_TEXT: 'כבר רשומים?',
+  REGISTER_LINK: 'להתחבר',
 };
 
-const searchFormTexts = {
-  searchFormPlaceholder: 'סרט',
-  searchFormLabel: 'חפש סרט',
-  searchFormCheckboxText: 'סרטים קצרים',
-};
-
-const moviesTexts = {
-  moviesTitle: 'סרטים',
-  moviesSearch: 'סרט',
-  moviesCheckbox: 'סרטים קצרים',
-  moviesPreloader: 'מתבצע חיפוש סרטים...',
-  moviesButton: 'עוד',
-  moviesButtonDisabled: 'אין יותר סרטים',
-  moviesButtonLoad: 'טען עוד',
+const SEARCH_FORM_TEXT = {
+  SEARCH_FORM_PLACEHOLDER: 'סרט',
+  SEARCH_FORM_LABLE: 'חפש סרט',
+  SEARCH_FORM_CHECKBOX_TEXT: 'סרטים קצרים',
 };
 
 const MOVIES_CARD = {
@@ -121,7 +112,7 @@ const FORM_ERRORS_MESSAGES = {
   CONFIRM_PASSWORD: 'הסיסמאות אינן זהות',
 };
 
-const profileTexts = {
+const PROFILE_TEXTS = {
   PROFILE_TITLE: 'שלום',
   PROFILE_EMAIL: 'אימייל',
   PROFILE_NAME: 'שם',
@@ -146,18 +137,17 @@ const LANGUAGE_DIRECTION = 'rtl';
 const IS_RIGTH_TO_LEFT = LANGUAGE_DIRECTION === 'rtl';
 
 export default {
-  navigationTexts,
-  linksNames,
-  mainContent,
-  footerTexts,
-  loginTexts,
-  registerTexts,
-  searchFormTexts,
-  moviesTexts,
+  NAVIGATION_TEXTS,
+  LINKS_NAMES,
+  MAIN_CONTENT,
+  FOOTER_TEXT,
+  LOGIN_TEXT,
+  REGISTER_TEXT,
+  SEARCH_FORM_TEXT,
   ERROR_MESSAGES_TEXTS,
   AUTH_MESSAGES,
   FORM_ERRORS_MESSAGES,
-  profileTexts,
+  PROFILE_TEXTS,
   MOVIES_CARD,
   MOVIES_CARD_LIST,
   NOT_FOUND_PAGE,

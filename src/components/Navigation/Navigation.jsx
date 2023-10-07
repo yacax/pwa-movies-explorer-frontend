@@ -8,13 +8,14 @@ import useTranslation from '../../hooks/useTranslation';
 
 function Navigation({ isPopup, closePopup }) {
   const user = React.useContext(CurrentUserContext);
+  const { language } = user;
   const navigate = useNavigate();
   const location = useLocation();
-  const isMain = location.pathname === '/';
-  const { navigationTexts } = useTranslation(user.language);
+  const isMain = location.pathname === `/${language}/`;
+  const { NAVIGATION_TEXTS } = useTranslation(language);
 
   const loginHandler = () => {
-    navigate('/signin');
+    navigate(`/${language}/signin`);
   };
 
   const navigationType = !isPopup ? 'navigation__menu' : 'navigation__popup';
@@ -34,31 +35,31 @@ function Navigation({ isPopup, closePopup }) {
         <div className={navigationType}>
           {isPopup && (
             <NavLink
-              to="/"
+              to={`/${language}/`}
               className={({ isActive }) => toDoNavLinkClass(isActive)}
             >
-              {navigationTexts.navigationMainPage}
+              {NAVIGATION_TEXTS.NAVIGATION_MAIN_PAGE}
             </NavLink>
           )}
           <NavLink
-            to="/movies"
+            to={`/${language}/movies`}
             className={({ isActive }) => toDoNavLinkClass(isActive)}
           >
-            {navigationTexts.navigationMovies}
+            {NAVIGATION_TEXTS.NAVIGATION_MOVIES}
           </NavLink>
           <NavLink
-            to="/saved-movies"
+            to={`/${language}/saved-movies`}
             className={({ isActive }) => toDoNavLinkClass(isActive)}
           >
-            {navigationTexts.navigationSavedMovies}
+            {NAVIGATION_TEXTS.NAVIGATION_SAVED_MOVIES}
           </NavLink>
           <NavLink
-            to="/profile"
+            to={`/${language}/profile`}
             className={`navigation__button navigation__button_logged ${
               isPopup ? 'navigation__button_popup' : ''
             }`}
           >
-            {navigationTexts.navigationProfile}
+            {NAVIGATION_TEXTS.NAVIGATION_PROFILE}
           </NavLink>
           <LanguagePanel isPopup={isPopup} />
 
@@ -67,7 +68,7 @@ function Navigation({ isPopup, closePopup }) {
               type="button"
               className="navigation__close-popup-button"
               name="popup-close-button"
-              aria-label={navigationTexts.closePopup}
+              aria-label={NAVIGATION_TEXTS.closePopup}
               value=""
               onClick={closePopup}
             />
@@ -75,14 +76,14 @@ function Navigation({ isPopup, closePopup }) {
         </div>
       ) : (
         <>
-          <NavLink to="/signup" className="navigation__link">
-            {navigationTexts.signUp}
+          <NavLink to={`/${language}/signUp`} className="navigation__link">
+            {NAVIGATION_TEXTS.SIGN_UP}
           </NavLink>
           <input
             type="button"
             className="navigation__button"
             onClick={loginHandler}
-            value={navigationTexts.signIn}
+            value={NAVIGATION_TEXTS.SIGN_IN}
           />
           <LanguagePanel />
         </>

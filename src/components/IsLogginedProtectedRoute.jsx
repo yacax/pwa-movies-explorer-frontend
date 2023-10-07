@@ -6,7 +6,7 @@ import CurrentUserContext from '../contexts/CurrentUserContext';
 function IsLogginedProtectedRoute({ component: Component, ...props }) {
   const currentUser = React.useContext(CurrentUserContext);
   if (currentUser.isLoggedIn) {
-    return <Navigate to="/" />;
+    return <Navigate to={`/${currentUser.language}/`} />;
   }
   return <Component {...props} />;
 }

@@ -5,9 +5,10 @@ import CurrentUserContext from '../../../contexts/CurrentUserContext';
 
 function Portfolio() {
   const { language } = useContext(CurrentUserContext);
-  const translation = useTranslation(language);
+  const { LINKS_NAMES, MAIN_CONTENT, IS_RIGTH_TO_LEFT } =
+    useTranslation(language);
   const navigationLinksClassNames = `portfolio__navigation-list-link ${
-    language === 'עבר'
+    IS_RIGTH_TO_LEFT
       ? 'portfolio__navigation-list-link_type_rtl'
       : 'portfolio__navigation-list-link_type_ltr'
   }`;
@@ -19,11 +20,11 @@ function Portfolio() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        {translation.linksNames.github}
+        {LINKS_NAMES.GITHUB}
       </a>
       <div className="portfolio__navigation">
         <h4 className="portfolio__navigation-list-title">
-          {translation.mainContent.portfolioTitle}
+          {MAIN_CONTENT.PORTFOLIO_TITLE}
         </h4>
         <ul className="portfolio__navigation-list">
           <li className="portfolio__navigation-list-item">
@@ -33,7 +34,7 @@ function Portfolio() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {translation.mainContent.portfolioSiteStatic}
+              {MAIN_CONTENT.PORTFOLIO_SITE_STATIC}
             </a>
           </li>
           <li className="portfolio__navigation-list-item">
@@ -43,7 +44,7 @@ function Portfolio() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {translation.mainContent.portfolioSiteAdaptive}
+              {MAIN_CONTENT.PORTFOLIO_SITE_ADAPTIVE}
             </a>
           </li>
           <li className="portfolio__navigation-list-item">
@@ -53,7 +54,7 @@ function Portfolio() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              {translation.mainContent.portfolioSiteSinglePage}
+              {MAIN_CONTENT.PORTFOLIO_SITE_SINGLE_PAGE}
             </a>
           </li>
         </ul>

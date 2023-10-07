@@ -1,7 +1,14 @@
 import { DEFAULT_LANGUAGE, TRANSLATION } from '../utils/constants';
 
 const useTranslation = (language) => {
-  return TRANSLATION[language === 'עבר' ? 'HE' : language || DEFAULT_LANGUAGE];
+  const isLanguageSupported = Object.prototype.hasOwnProperty.call(
+    TRANSLATION,
+    language
+  )
+    ? language
+    : DEFAULT_LANGUAGE;
+
+  return TRANSLATION[isLanguageSupported];
 };
 
 export default useTranslation;

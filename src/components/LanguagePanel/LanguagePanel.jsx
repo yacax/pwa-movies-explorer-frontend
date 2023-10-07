@@ -1,30 +1,43 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './LanguagePanel.css';
-import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
-import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '../../utils/constants';
+import {
+  SUPPORTED_LANGUAGES,
+  DEFAULT_LANGUAGE,
+  LANGUAGES_NAMES,
+} from '../../utils/constants';
+import usePath from '../../hooks/usePath';
 
 function LanguagePanel({ isPopup }) {
-  const location = useLocation();
-  const { language, changeLanguage } = React.useContext(CurrentUserContext);
-  const [isLanguagePopup, setIsLanguagePopup] = useState(false);
+  const navigate = useNavigate();
 
-  const handleLanguageChange = (item) => {
-    changeLanguage(item);
+  const location = useLocation();
+  const { language } = React.useContext(CurrentUserContext);
+
+  const [isLanguagePopup, setIsLanguagePopup] = useState(false);
+  const { pathWithoutLanguage } = usePath();
+  const languagePanelButtonClassNames = `language-panel__button ${
+    location.pathname !== `/${language}/` || isPopup
+      ? 'language-panel__button_style_black'
+      : ''
+  }`;
+
+  const handleLanguageChange = (newLang) => {
     setIsLanguagePopup(false);
+    const newPath = `/${newLang}${pathWithoutLanguage}`;
+    navigate(newPath);
   };
 
   return (
     <div className={`language-panel ${isPopup ? 'language-panel_popup' : ''}`}>
       <button
         type="button"
-        className={`language-panel__button ${
-          location.pathname !== '/' ? 'language-panel__button_style_black' : ''
-        }`}
+        className={languagePanelButtonClassNames}
         onClick={() => setIsLanguagePopup(!isLanguagePopup)}
       >
-        {language || 'EN'}
+        {LANGUAGES_NAMES[language] || 'English'}
       </button>
       <div
         className={`language-panel__list ${
@@ -37,14 +50,10 @@ function LanguagePanel({ isPopup }) {
           <button
             key={item}
             type="button"
-            className={`language-panel__button ${
-              location.pathname !== '/'
-                ? 'language-panel__button_style_black'
-                : ''
-            }`}
+            className={languagePanelButtonClassNames}
             onClick={() => handleLanguageChange(item)}
           >
-            {item}
+            {LANGUAGES_NAMES[item]}
           </button>
         ))}
       </div>

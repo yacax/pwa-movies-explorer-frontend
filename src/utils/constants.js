@@ -9,6 +9,9 @@ const BASE_IMAGE_URL = 'https://api.nomoreparties.co/';
 const REGEXP = {
   EMAIL: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
   JWT_PATTERN: /^[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*$/,
+  LANGUAGE_PREFIX_REMOVAL: /^\/[a-z]{2}/,
+  LANGUAGE_PREFIX_EXTRACTION: /^\/([a-z]{2})\//,
+  BROWSER_LANGUAGE: /^([a-z]{2})/i,
 };
 
 const TEXTS_ERROR_MESSAGES = {
@@ -28,11 +31,6 @@ const AUTH_ERROR_MESSAGES = {
 
 const BASE_ERROR_MESAGE = 'Something went wrong! Please try again';
 const DEFAULT_POPUP_DELAY = 5000;
-
-// const FORM_ERRORS_MESSAGES = {
-//   EMAIL: 'Неверный адрес электронной почты',
-//   CONFIRM_PASSWORD: 'Пароли не одинаковые',
-// };
 
 const VALID_PATHS = [
   '/movies',
@@ -66,10 +64,10 @@ const BREAKPOINTS = {
   DESKTOP: 1280 - 1,
 };
 
-const SUPPORTED_LANGUAGES = ['RU', 'EN', 'עבר'];
-const DEFAULT_LANGUAGE = 'EN';
-
-const TRANSLATION = { EN: en, RU: ru, HE: he };
+const DEFAULT_LANGUAGE = 'en';
+const SUPPORTED_LANGUAGES = ['ru', 'en', 'he'];
+const TRANSLATION = { en, ru, he };
+const LANGUAGES_NAMES = { en: 'ENG', ru: 'РУС', he: 'עבר' };
 
 export {
   BASE_BACKEND_URL,
@@ -83,6 +81,7 @@ export {
   DEFAULT_LANGUAGE,
   AUTH_ERROR_MESSAGES,
   TRANSLATION,
+  LANGUAGES_NAMES,
   DEFAULT_POPUP_DELAY,
   MOVIES_DISPLAY_COUNT,
   MOVIES_DISPLAY_TYPES,

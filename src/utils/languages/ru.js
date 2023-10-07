@@ -1,97 +1,87 @@
-const navigationTexts = {
-  signUp: 'Регистрация',
-  signIn: 'Войти',
-  navigationMainPage: 'Главная',
-  navigationMovies: 'Фильмы',
-  navigationSavedMovies: 'Сохранённые фильмы',
-  navigationProfile: 'Аккаунт',
-  navigationClosePopup: 'Закрыть',
+const NAVIGATION_TEXTS = {
+  SIGN_UP: 'Регистрация',
+  SIGN_IN: 'Войти',
+  NAVIGATION_MAIN_PAGE: 'Главная',
+  NAVIGATION_MOVIES: 'Фильмы',
+  NAVIGATION_SAVED_MOVIES: 'Сохранённые фильмы',
+  NAVIGATION_PROFILE: 'Аккаунт',
+  NAVIGATION_CLOSE_POPUP: 'Закрыть',
 };
 
-const linksNames = {
-  aboutProject: 'О проекте',
-  aboutTech: 'Технологии',
-  aboutStudent: 'Студент',
-  github: 'Github',
+const LINKS_NAMES = {
+  ABOUT_PROJECT: 'О проекте',
+  ABOUT_TECH: 'Технологии',
+  ABOUT_STUDENT: 'Студент',
+  GITHUB: 'Github',
 };
 
-const mainContent = {
-  promo: 'Учебный проект студента факультета Веб-разработки',
-  aboutProject: 'О проекте',
-  aboutProjectFirstColumnTitle: 'Дипломный проект включал 5 этапов',
-  aboutProjectFirstColumnText:
+const MAIN_CONTENT = {
+  PROMO: 'Учебный проект студента факультета Веб-разработки',
+  ABOUT_PROJECT: 'О проекте',
+  ABOUT_PROJECT_FIRST_COLUMN_TITLE: 'Дипломный проект включал 5 этапов',
+  ABOUT_PROJECT_FIRST_COLUMN_TEXT:
     'Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки.',
-  aboutProjectSecondColumnTitle: 'На выполнение диплома ушло 5 недель',
-  aboutProjectSecondColumnText:
+  ABOUT_PROJECT_SECOND_COLUMN_TITLE: 'На выполнение диплома ушло 5 недель',
+  ABOUT_PROJECT_SECOND_COLUMN_TEXT:
     'У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.',
-  firstGantPart: '1 неделя',
-  secondGantPart: '4 недели',
-  firstGantComment: 'Back-end',
-  secondGantComment: 'Front-end',
-  aboutTech: 'Технологии',
-  aboutTechTitle: '7 технологий',
-  aboutTechSubtitle:
+  FIRST_GANT_PART: '1 неделя',
+  SECOND_GANT_PART: '4 недели',
+  FIRST_GANT_COMMENT: 'Back-end',
+  SECOND_GANT_COMMENT: 'Front-end',
+  ABOUT_TECH: 'Технологии',
+  ABOUT_TECH_TITLE: '7 технологий',
+  ABOUT_TECH_SUBTITLE:
     'На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.',
-  aboutTechFirstColumnTitle: 'HTML',
-  aboutTechSecondColumnTitle: 'CSS',
-  aboutTechThirdColumnTitle: 'JS',
-  aboutTechFourthColumnTitle: 'React',
-  aboutTechFifthColumnTitle: 'Git',
-  aboutTechSixthColumnTitle: 'Express.js',
-  aboutTechSeventhColumnTitle: 'mongoDB',
-  aboutStudent: 'Студент',
-  aboutStudentTitle: 'Александр',
-  aboutStudentSubtitle: 'Фронтенд-разработчик',
-  aboutStudentText:
+  ABOUT_TECH_FIRST_COLUMN_TITLE: 'HTML',
+  ABOUT_TECH_SECOND_COLUMN_TITLE: 'CSS',
+  ABOUT_TECH_THIRD_COLUMN_TITLE: 'JS',
+  ABOUT_TECH_FOURTH_COLUMN_TITLE: 'React',
+  ABOUT_TECH_FIFTH_COLUMN_TITLE: 'Git',
+  ABOUT_TECH_SIXTH_COLUMN_TITLE: 'Express.js',
+  ABOUT_TECH_SEVENTH_COLUMN_TITLE: 'mongoDB',
+  ABOUT_STUDENT: 'Студент',
+  ABOUT_STUDENT_TITLE: 'Александр',
+  ABOUT_STUDENT_SUBTITLE: 'Фронтенд-разработчик',
+  ABOUT_STUDENT_TEXT:
     'Я родился и вырос в Санкт-Петербурге, закончил факультет КТиУ ИТМО. У меня есть жена и две дочки. Я люблю слушать музыку, ходить на концерты, играть в волейбол и увлекаюсь бегом. Некоторое время я был инженером, потом работал в продажах. Мне всегда нравился дизайн, а недавно я начал кодить. После того как закончу курс Веб-разработчик от Яндекс Практикум, буду делать крутые штуки в сети.',
-  aboutStudentAlt: 'Thats me!',
-  portfolio: 'Портфолио',
-  portfolioTitle: 'Портфолио',
-  portfolioSiteStatic: 'Статичный сайт',
-  portfolioSiteAdaptive: 'Адаптивный сайт',
-  portfolioSiteSinglePage: 'Одностраничное приложение',
+  ABOUT_STUDENT_ALT: 'Thats me!',
+  PORTFOLIO: 'Портфолио',
+  PORTFOLIO_TITLE: 'Портфолио',
+  PORTFOLIO_SITE_STATIC: 'Статичный сайт',
+  PORTFOLIO_SITE_ADAPTIVE: 'Адаптивный сайт',
+  PORTFOLIO_SITE_SINGLE_PAGE: 'Одностраничное приложение',
   PWA_BUTTON: 'Установить приложение',
 };
 
-const footerTexts = {
-  copyRightText: '© Учебный проект Яндекс.Практикум х\u00A0BeatFilm.',
-  footerLinkText: 'Яндекс.Практикум',
+const FOOTER_TEXT = {
+  COPYRIGHT_TEXT: '© Учебный проект Яндекс.Практикум х\u00A0BeatFilm.',
+  FOOTRE_LINK_TEXT: 'Яндекс.Практикум',
 };
 
-const loginTexts = {
-  loginTitle: 'Рады видеть!',
-  loginEmail: 'E-mail',
-  loginPassword: 'Пароль',
-  loginButton: 'Войти',
-  loginText: 'Ещё не зарегистрированы?',
-  loginLink: 'Регистрация',
+const LOGIN_TEXT = {
+  LOGIN_TITLE: 'Рады видеть!',
+  LOGIN_EMAIL: 'E-mail',
+  LOGIN_PASSWORD: 'Пароль',
+  LOGIN_BUTTON: 'Войти',
+  LOGIN_TEXT: 'Ещё не зарегистрированы?',
+  LOGIN_LINK: 'Регистрация',
 };
 
-const registerTexts = {
-  registerTitle: 'Добро пожаловать!',
-  registerName: 'Имя',
-  registerEmail: 'E-mail',
-  registerPassword: 'Пароль',
-  registerPasswordAgain: 'Повторите пароль',
-  registerButton: 'Зарегистрироваться',
-  registerText: 'Уже зарегистрированы?',
-  registerLink: 'Войти',
+const REGISTER_TEXT = {
+  REGISTER_TITLE: 'Добро пожаловать!',
+  REGISTER_NAME: 'Имя',
+  REGISTER_EMAIL: 'E-mail',
+  REGISTER_PASSWORD: 'Пароль',
+  REGISTER_PASSWORD_AGAIN: 'Повторите пароль',
+  REGISTER_BUTTON: 'Зарегистрироваться',
+  REGISTER_TEXT: 'Уже зарегистрированы?',
+  REGISTER_LINK: 'Войти',
 };
 
-const searchFormTexts = {
-  searchFormPlaceholder: 'Фильм',
-  searchFormLabel: 'Найти фильм',
-  searchFormCheckboxText: 'Короткометражки',
-};
-
-const moviesTexts = {
-  moviesTitle: 'Фильмы',
-  moviesSearch: 'Фильм',
-  moviesCheckbox: 'Короткометражки',
-  moviesPreloader: 'Идет поиск фильмов...',
-  moviesButton: 'Ещё',
-  moviesButtonDisabled: 'Нет больше фильмов',
-  moviesButtonLoad: 'Загрузить ещё',
+const SEARCH_FORM_TEXT = {
+  SEARCH_FORM_PLACEHOLDER: 'Фильм',
+  SEARCH_FORM_LABLE: 'Найти фильм',
+  SEARCH_FORM_CHECKBOX_TEXT: 'Короткометражки',
 };
 
 const MOVIES_CARD = {
@@ -122,7 +112,7 @@ const FORM_ERRORS_MESSAGES = {
   CONFIRM_PASSWORD: 'Пароли не одинаковые',
 };
 
-const profileTexts = {
+const PROFILE_TEXTS = {
   PROFILE_TITLE: 'Привет',
   PROFILE_EMAIL: 'E-mail',
   PROFILE_NAME: 'Имя',
@@ -147,18 +137,17 @@ const LANGUAGE_DIRECTION = 'ltr';
 const IS_RIGTH_TO_LEFT = LANGUAGE_DIRECTION === 'rtl';
 
 export default {
-  navigationTexts,
-  linksNames,
-  mainContent,
-  footerTexts,
-  loginTexts,
-  registerTexts,
-  searchFormTexts,
-  moviesTexts,
+  NAVIGATION_TEXTS,
+  LINKS_NAMES,
+  MAIN_CONTENT,
+  FOOTER_TEXT,
+  LOGIN_TEXT,
+  REGISTER_TEXT,
+  SEARCH_FORM_TEXT,
   ERROR_MESSAGES_TEXTS,
   AUTH_MESSAGES,
   FORM_ERRORS_MESSAGES,
-  profileTexts,
+  PROFILE_TEXTS,
   MOVIES_CARD,
   MOVIES_CARD_LIST,
   NOT_FOUND_PAGE,
