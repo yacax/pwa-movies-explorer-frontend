@@ -7,7 +7,6 @@ import {
   Navigate,
 } from 'react-router-dom';
 import './App.css';
-
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import ProtectedRoute from '../ProtetedRoute';
 import IsLogginedProtectedRoute from '../IsLogginedProtectedRoute';

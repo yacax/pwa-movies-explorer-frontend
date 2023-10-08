@@ -48,8 +48,12 @@ const MAIN_CONTENT = {
   PORTFOLIO: 'Портфолио',
   PORTFOLIO_TITLE: 'Портфолио',
   PORTFOLIO_SITE_STATIC: 'Статичный сайт',
+  PORTFOLIO_GITHUB_LINK: 'https://github.com/yacax',
+  PORTFOLIO_SITE_STATIC_LINK: 'https://yacax.github.io/how-to-learn/',
   PORTFOLIO_SITE_ADAPTIVE: 'Адаптивный сайт',
+  PORTFOLIO_SITE_ADAPTIVE_LINK: 'https://yacax.github.io/russian-travel/',
   PORTFOLIO_SITE_SINGLE_PAGE: 'Одностраничное приложение',
+  PORTFOLIO_SITE_SINGLE_PAGE_LINK: 'https://yacax.github.io/react-mesto-auth/',
   PWA_BUTTON: 'Установить приложение',
 };
 

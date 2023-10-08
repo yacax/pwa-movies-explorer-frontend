@@ -47,9 +47,13 @@ const MAIN_CONTENT = {
   ABOUT_STUDENT_ALT: 'Это я!',
   PORTFOLIO: 'Portfolio',
   PORTFOLIO_TITLE: 'Portfolio',
+  PORTFOLIO_GITHUB_LINK: 'https://github.com/yacax',
   PORTFOLIO_SITE_STATIC: 'Static Site',
+  PORTFOLIO_SITE_STATIC_LINK: 'https://yacax.github.io/how-to-learn/',
   PORTFOLIO_SITE_ADAPTIVE: 'Adaptive Site',
+  PORTFOLIO_SITE_ADAPTIVE_LINK: 'https://yacax.github.io/russian-travel/',
   PORTFOLIO_SITE_SINGLE_PAGE: 'Single Page Application',
+  PORTFOLIO_SITE_SINGLE_PAGE_LINK: 'https://yacax.github.io/react-mesto-auth/',
   PWA_BUTTON: 'Install the app',
 };
 

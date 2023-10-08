@@ -15,7 +15,7 @@ function Portfolio() {
   return (
     <section className="portfolio">
       <a
-        href="https://github.com/yacax"
+        href={MAIN_CONTENT.PORTFOLIO_GITHUB_LINK}
         className="portfolio__link-git"
         target="_blank"
         rel="noopener noreferrer"
@@ -29,7 +29,7 @@ function Portfolio() {
         <ul className="portfolio__navigation-list">
           <li className="portfolio__navigation-list-item">
             <a
-              href="https://github.com/yacax/how-to-learn"
+              href={MAIN_CONTENT.PORTFOLIO_SITE_STATIC_LINK}
               className={navigationLinksClassNames}
               target="_blank"
               rel="noopener noreferrer"
@@ -39,7 +39,7 @@ function Portfolio() {
           </li>
           <li className="portfolio__navigation-list-item">
             <a
-              href="https://yacax.github.io/russian-travel/"
+              href={MAIN_CONTENT.PORTFOLIO_SITE_ADAPTIVE_LINK}
               className={navigationLinksClassNames}
               target="_blank"
               rel="noopener noreferrer"
@@ -49,7 +49,7 @@ function Portfolio() {
           </li>
           <li className="portfolio__navigation-list-item">
             <a
-              href="https://yacax.nomoreparties.sbs/"
+              href={MAIN_CONTENT.PORTFOLIO_SITE_SINGLE_PAGE_LINK}
               className={navigationLinksClassNames}
               target="_blank"
               rel="noopener noreferrer"
