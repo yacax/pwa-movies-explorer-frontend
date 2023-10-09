@@ -90,6 +90,8 @@ const SEARCH_FORM_TEXT = {
 
 const MOVIES_CARD = {
   SAVE_MOVIE: 'שמור סרט',
+  HOURS: 'ש',
+  MINUTES: 'ד',
 };
 
 const MOVIES_CARD_LIST = {

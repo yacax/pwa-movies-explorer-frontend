@@ -90,6 +90,8 @@ const SEARCH_FORM_TEXT = {
 
 const MOVIES_CARD = {
   SAVE_MOVIE: 'Сохранить фильм',
+  HOURS: 'ч',
+  MINUTES: 'м',
 };
 
 const MOVIES_CARD_LIST = {

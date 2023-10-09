@@ -2,21 +2,31 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './MoviesCard.css';
 import PropTypes from 'prop-types';
+import { DEFAULT_LANGUAGE } from '../../utils/constants';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import useTranslation from '../../hooks/useTranslation';
 
 function MoviesCard({ movie, handleMovieButton, isChangingAction }) {
   const { language } = React.useContext(CurrentUserContext);
-  const translation = useTranslation(language);
+  const { MOVIES_CARD, IS_RIGTH_TO_LEFT } = useTranslation(language);
   const location = useLocation();
 
   const savedMoviesPage = location.pathname === `/${language}/saved-movies`;
-  const toDoDurationInHours = (min) => `${Math.floor(min / 60)}ч ${min % 60}м`;
+  const toDoDurationInHours = (min) =>
+    `${Math.floor(min / 60)}${MOVIES_CARD.HOURS} ${min % 60}${
+      MOVIES_CARD.MINUTES
+    }`;
   const durationInHours = toDoDurationInHours(movie.duration);
+
+  const movieNameCurrentLanguage = `name${language.toUpperCase()}`;
+  const movieNameKey =
+    movieNameCurrentLanguage in movie
+      ? movieNameCurrentLanguage
+      : `name${DEFAULT_LANGUAGE.toUpperCase()}`;
 
   return (
     <div className="movies-card">
-      <h1 className="movies-card__title">{movie.nameRU}</h1>
+      <h1 className="movies-card__title">{movie[movieNameKey]}</h1>
       <p className="movies-card__text">{durationInHours}</p>
       <input
         type="button"
@@ -25,9 +35,11 @@ function MoviesCard({ movie, handleMovieButton, isChangingAction }) {
             ? 'movies-card__save-button_type_active'
             : ''
         }
-        ${savedMoviesPage ? 'movies-card__save-button_type_delete' : ''}`}
+        ${savedMoviesPage ? 'movies-card__save-button_type_delete' : ''}
+        ${IS_RIGTH_TO_LEFT ? 'movies-card__save-button_algin-right' : ''}
+        `}
         name="movies-card__save-button"
-        aria-label={translation.MOVIES_CARD}
+        aria-label={MOVIES_CARD.SAVE_MOVIE}
         value=""
         onClick={() => {
           handleMovieButton(movie);
